@@ -376,6 +376,11 @@
 	path = mine/docker/dockers
 	url = git@github.com:danwdart/dockers.git
 	branch = master
+[submodule "mine/templates"]
+	path = mine/templates
+	url = git@github.com:danwdart/templates.git
+
+# contrib
 [submodule "contrib/hspec-webdriver"]
 	path = contrib/hspec-webdriver
 	url = git@github.com:danwdart/hspec-webdriver

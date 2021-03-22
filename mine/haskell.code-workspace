@@ -1,0 +1,71 @@
+{
+	"folders": [
+		{
+			"name": "4letters",
+			"path": "haskell/4letters"
+		},
+		{
+			"name": "appmaker",
+			"path": "haskell/appmaker"
+		},
+		{
+			"name": "chatter",
+			"path": "haskell/chatter"
+		},
+		{
+			"name": "compositions",
+			"path": "haskell/compositions"
+		},
+		{
+			"name": "dubloons",
+			"path": "haskell/dubloons"
+		},
+		{
+			"name": "frugaled",
+			"path": "haskell/frugaled"
+		},
+		{
+			"name": "funky-birthdays",
+			"path": "haskell/funky-birthdays"
+		},
+		{
+			"name": "item-manager",
+			"path": "haskell/item-manager"
+		},
+		{
+			"name": "jobfinder",
+			"path": "haskell/jobfinder"
+		},
+		{
+			"name": "websites",
+			"path": "haskell/websites"
+		},
+		{
+			"name": "haskell",
+			"path": "multi/projects/haskell"
+		},
+		{
+			"name": "dockers",
+			"path": "docker/dockers"
+		},
+		{
+			"name": "system",
+			"path": "shell/system"
+		},
+		{
+			"name": "code",
+			"path": ".."
+		},
+		{
+			"name": "VMs",
+			"path": "../../VMs"
+		},
+		{
+			"path": "templates"
+		}
+	],
+	"settings": {
+		"nixEnvSelector.nixShellConfig": "NOT_MODIFIED_ENV",
+		"nixEnvSelector.nixFile": "${workspaceRoot}/shell.nix"
+	}
+}
