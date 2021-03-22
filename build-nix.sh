@@ -4,7 +4,7 @@ trap 'exit 1' ERR
 CODEDIR=$PWD/mine
 cd $CODEDIR
 echo Finding Nix projects...
-for FILE in $(find $CODEDIR -name default.nix | grep -v external | grep -v ghcjs)
+for FILE in $(find $CODEDIR -name default.nix | grep -v external | grep -v ghcjs | grep -v dist-newstyle)
 do
     DIRLOC=$(dirname $FILE)
     echo Entering $DIRLOC
