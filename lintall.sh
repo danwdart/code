@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env nix-shell
+#! nix-shell -p stylish-haskell hlint
 set -e
 INITDIR=~/code
 cd $INITDIR
@@ -13,7 +14,7 @@ do
         BASE=$(basename $DIR)
         echo Updating $BASE...
         cd $DIR
-        FILES=$(find -path ".stack-work" -prune -o -name "*.hs" | grep -v .stack-work | grep -v dist-newstyle)
+        FILES=$(find -name *.hs | grep -v .stack-work | grep -v dist-newstyle)
         parallel --halt never hlint --refactor --refactor-options=-i ::: $FILES
         parallel --halt never stylish-haskell -i ::: $FILES
         echo Finished updating $BASE
