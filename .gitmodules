@@ -393,3 +393,12 @@
 	path = contrib/humblr
 	url = git@github.com:danwdart/humblr.git
 	branch = master
+[submodule "mine/haskell/item-manager"]
+	path = mine/haskell/item-manager
+	url = git@github.com:danwdart/item-manager.git
+[submodule "mine/haskell/appmaker"]
+	path = mine/haskell/appmaker
+	url = git@github.com:danwdart/appmaker
+[submodule "mine/haskell/jobfinder"]
+	path = mine/haskell/jobfinder
+	url = git@github.com:danwdart/jobfinder
