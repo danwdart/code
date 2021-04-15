@@ -66,6 +66,7 @@
 	],
 	"settings": {
 		"nixEnvSelector.nixShellConfig": "NOT_MODIFIED_ENV",
+		"nixEnvSelector.suggestion": false,
 		"nixEnvSelector.nixFile": "${workspaceRoot}/shell.nix"
 	}
 }

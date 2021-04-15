@@ -9,6 +9,11 @@ do
     DIRLOC=$(dirname $FILE)
     echo Entering $DIRLOC
     cd $DIRLOC
+    if [[ -f .gitmodules ]]
+    then
+        echo .gitmodules found, updating...
+        git submodule update --init --recursive
+    fi
     if [[ -f shell.nix ]]
     then
         echo shell.nix detected
