@@ -42,7 +42,7 @@
 		},
 		{
 			"name": "system",
-			"path": "shell/system"
+			"path": "nix/system"
 		},
 		{
 			"name": "code",
@@ -53,6 +53,7 @@
 			"path": "../../VMs"
 		},
 		{
+			"name": "templates",
 			"path": "templates"
 		}
 	],
