@@ -332,8 +332,8 @@
 	path = mine/shell/scrapepins
 	url = git@github.com:danwdart/scrapepins.git
 	branch = master
-[submodule "mine/shell/system"]
-	path = mine/shell/system
+[submodule "mine/nix/system"]
+	path = mine/nix/system
 	url = git@github.com:danwdart/system.git
 	branch = master
 [submodule "mine/shell/update-checker"]
