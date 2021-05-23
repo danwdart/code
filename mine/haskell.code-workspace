@@ -55,6 +55,18 @@
 		{
 			"name": "templates",
 			"path": "templates"
+		},
+		{
+			"path": "../contrib/fsutils"
+		},
+		{
+			"path": "../contrib/hspec-webdriver"
+		},
+		{
+			"path": "../contrib/humblr"
+		},
+		{
+			"path": "../contrib/nixos-manager"
 		}
 	],
 	"settings": {
