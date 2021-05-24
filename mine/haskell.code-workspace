@@ -5,6 +5,10 @@
 			"path": "haskell/4letters"
 		},
 		{
+			"name": "appmaker",
+			"path": "haskell/appmaker"
+		},
+		{
 			"name": "chatter",
 			"path": "haskell/chatter"
 		},
@@ -57,15 +61,19 @@
 			"path": "templates"
 		},
 		{
+			"name": "fsutils",
 			"path": "../contrib/fsutils"
 		},
 		{
+			"name": "hspec-webdriver",
 			"path": "../contrib/hspec-webdriver"
 		},
 		{
+			"name": "humblr",
 			"path": "../contrib/humblr"
 		},
 		{
+			"name": "nixos-manager",
 			"path": "../contrib/nixos-manager"
 		}
 	],
