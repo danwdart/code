@@ -49,32 +49,12 @@
 			"path": "nix/system"
 		},
 		{
-			"name": "code",
-			"path": ".."
-		},
-		{
 			"name": "VMs",
 			"path": "../../VMs"
 		},
 		{
 			"name": "templates",
 			"path": "templates"
-		},
-		{
-			"name": "fsutils",
-			"path": "../contrib/fsutils"
-		},
-		{
-			"name": "hspec-webdriver",
-			"path": "../contrib/hspec-webdriver"
-		},
-		{
-			"name": "humblr",
-			"path": "../contrib/humblr"
-		},
-		{
-			"name": "nixos-manager",
-			"path": "../contrib/nixos-manager"
 		}
 	],
 	"settings": {
