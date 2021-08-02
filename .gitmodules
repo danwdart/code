@@ -402,3 +402,6 @@
 [submodule "mine/haskell/jobfinder"]
 	path = mine/haskell/jobfinder
 	url = git@github.com:danwdart/jobfinder
+[submodule "mine/haskell/family"]
+	path = mine/haskell/family
+	url = git@github.com:danwdart/family.git
