@@ -21,6 +21,10 @@
 			"path": "haskell/dubloons"
 		},
 		{
+			"name": "family",
+			"path": "haskell/family"
+		},
+		{
 			"name": "funky-birthdays",
 			"path": "haskell/funky-birthdays"
 		},
@@ -55,6 +59,9 @@
 		{
 			"name": "templates",
 			"path": "templates"
+		},
+		{
+			"path": "../contrib/hs-gedcom"
 		}
 	],
 	"settings": {
