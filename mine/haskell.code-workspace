@@ -45,10 +45,6 @@
 			"path": "multi/projects/haskell"
 		},
 		{
-			"name": "dockers",
-			"path": "docker/dockers"
-		},
-		{
 			"name": "system",
 			"path": "nix/system"
 		},
@@ -57,11 +53,7 @@
 			"path": "../../VMs"
 		},
 		{
-			"name": "templates",
-			"path": "templates"
-		},
-		{
-			"path": "../contrib/hs-gedcom"
+			"path": ".."
 		}
 	],
 	"settings": {
