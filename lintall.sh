@@ -1,7 +1,8 @@
 #!/usr/bin/env nix-shell
-#! nix-shell -p stylish-haskell hlint haskellPackages.apply-refact parallel -i bash
+#! nix-shell -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/master.tar.gz -p stylish-haskell hlint haskellPackages.apply-refact parallel -i bash
 set -e
-echo "will cite" | parallel --citation
+touch ~/.parallel/will-cite
+# echo "will cite" | parallel --citation
 INITDIR=~/code
 cd $INITDIR
 echo Finding Haskell projects...
