@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "web-api",
+			"path": "web-api"
+		},
+		{
+			"name": "web-app",
+			"path": "web-app"
+		},
+		{
+			"path": "wordpress-prototype"
+		},
+		{
+			"path": "multi-browser-extension"
+		},
+		{
+			"path": "provisioning"
+		}
+	]
+}
