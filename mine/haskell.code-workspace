@@ -41,6 +41,10 @@
 			"path": "haskell/websites"
 		},
 		{
+			"name": "fsutils",
+			"path": "../contrib/fsutils"
+		},
+		{
 			"name": "haskell",
 			"path": "multi/projects/haskell"
 		},
