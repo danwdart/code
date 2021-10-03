@@ -63,6 +63,9 @@
 		{
 			"name": "code",
 			"path": ".."
+		},
+		{
+			"path": "../contrib/hs-webdriver"
 		}
 	],
 	"settings": {
