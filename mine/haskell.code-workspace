@@ -63,12 +63,6 @@
 		{
 			"name": "code",
 			"path": ".."
-		},
-		{
-			"path": "../contrib/hs-webdriver"
-		},
-		{
-			"path": "../contrib/imap"
 		}
 	],
 	"settings": {
