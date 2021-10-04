@@ -66,6 +66,9 @@
 		},
 		{
 			"path": "../contrib/hs-webdriver"
+		},
+		{
+			"path": "../contrib/imap"
 		}
 	],
 	"settings": {
