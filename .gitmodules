@@ -105,9 +105,6 @@
 	path = mine/haskell/compositions
 	url = git@github.com:danwdart/compositions.git
 	branch = master
-[submodule "mine/haskell/frugaled"]
-	path = mine/haskell/frugaled
-	url = git@github.com:danwdart/frugaled.git
 [submodule "mine/haskell/funky-birthdays"]
 	path = mine/haskell/funky-birthdays
 	url = git@github.com:danwdart/funky-birthdays.git
@@ -393,12 +390,6 @@
 	path = contrib/humblr
 	url = git@github.com:danwdart/humblr.git
 	branch = master
-[submodule "mine/haskell/item-manager"]
-	path = mine/haskell/item-manager
-	url = git@github.com:danwdart/item-manager.git
-[submodule "mine/haskell/appmaker"]
-	path = mine/haskell/appmaker
-	url = git@github.com:danwdart/appmaker
 [submodule "mine/haskell/jobfinder"]
 	path = mine/haskell/jobfinder
 	url = git@github.com:danwdart/jobfinder
@@ -423,3 +414,6 @@
 [submodule "commissions/timezap/wordpress-prototype"]
 	path = commissions/timezap/wordpress-prototype
 	url = git@gitlab.com:eppiq/timezap/wordpress-prototype.git
+[submodule "mine/haskell/moveme"]
+	path = mine/haskell/moveme
+	url = git@github.com:danwdart/moveme.git
