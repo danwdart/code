@@ -5,10 +5,6 @@
 			"path": "haskell/4letters"
 		},
 		{
-			"name": "appmaker",
-			"path": "haskell/appmaker"
-		},
-		{
 			"name": "chatter",
 			"path": "haskell/chatter"
 		},
@@ -21,16 +17,16 @@
 			"path": "haskell/dubloons"
 		},
 		{
+			"name": "moveme",
+			"path": "haskell/moveme"
+		},
+		{
 			"name": "family",
 			"path": "haskell/family"
 		},
 		{
 			"name": "funky-birthdays",
 			"path": "haskell/funky-birthdays"
-		},
-		{
-			"name": "item-manager",
-			"path": "haskell/item-manager"
 		},
 		{
 			"name": "jobfinder",
