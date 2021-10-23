@@ -20,7 +20,8 @@ do
     ncu -ut greatest
     npm install
     git add package.json package-lock.json
-    git commit -m "npm updates for $(basename $DIRLOC)"
+    git commit -m "npm updates for $(basename $DIRLOC)" || echo nah
     git push
 done
 cd $CODEDIR
+echo Done!
