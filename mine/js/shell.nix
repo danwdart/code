@@ -1,4 +1,4 @@
-with import <unstable> {};
+with import (builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/master.tar.gz") {};
 runCommand "js" {
     buildInputs = [
         nodejs-16_x
