@@ -58,29 +58,36 @@ buildReflexOrDefault() {
     fi
 }
 
-CODEDIR=$PWD/mine
-cd $CODEDIR
-echo Finding Nix projects...
-for FILE in $(find $CODEDIR -name default.nix | grep -v external | grep -v ghcjs | grep -v dist-newstyle | grep -v wasm-cross | grep -v reflex-platform | grep -v templates)
+ORIG=$(pwd)
+CODEDIRS="$PWD/mine $PWD/contrib"
+for CODEDIR in $CODEDIRS
 do
-    DIRLOC=$(dirname $FILE)
-    echo Entering $DIRLOC
-    cd $DIRLOC
-    if [[ -f .gitmodules ]]
-    then
-        echo .gitmodules found, updating...
-        git submodule update --init --recursive
-    fi
-    if [[ -f shell.nix ]]
-    then
-        echo shell.nix detected, will build both shell.nix and default.nix
-        echo Building shell.nix...
-        buildShell
-        echo Building default.nix...
-        buildReflexOrDefault
-    else
-        echo No shell.nix detected, building default.nix
-        buildReflexOrDefault
-    fi
+    cd $CODEDIR
+    echo Finding Nix projects in $CODEDIR...
+    for FILE in $(find $CODEDIR -name default.nix | grep -v external | grep -v ghcjs | grep -v dist-newstyle | grep -v wasm-cross | grep -v reflex-platform | grep -v templates)
+    do
+        DIRLOC=$(dirname $FILE)
+        echo Entering $DIRLOC
+        cd $DIRLOC
+        if [[ -f .gitmodules ]]
+        then
+            echo .gitmodules found, updating...
+            git submodule update --init --recursive
+        fi
+        if [[ -f shell.nix ]]
+        then
+            echo shell.nix detected, will build both shell.nix and default.nix
+            echo Building shell.nix...
+            buildShell
+            echo Building default.nix...
+            buildReflexOrDefault
+        else
+            echo No shell.nix detected, building default.nix
+            buildReflexOrDefault
+        fi
+    done
+    cd $CODEDIR
+    echo "Finished processing Nix projects in $CODEDIR"
 done
-cd $CODEDIR
+cd $ORIG
+echo "Finished all"
