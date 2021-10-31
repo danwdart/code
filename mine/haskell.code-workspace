@@ -17,10 +17,6 @@
 			"path": "haskell/dubloons"
 		},
 		{
-			"name": "moveme",
-			"path": "haskell/moveme"
-		},
-		{
 			"name": "family",
 			"path": "haskell/family"
 		},
