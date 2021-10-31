@@ -1,7 +1,7 @@
 #!/usr/bin/env nix-shell
 #! nix-shell -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/master.tar.gz -p stylish-haskell hlint haskellPackages.apply-refact parallel -i bash
 set -e
-mkdir ~/.parallel
+mkdir ~/.parallel || echo ".parallel exists"
 touch ~/.parallel/will-cite
 # echo "will cite" | parallel --citation
 INITDIR=~/code
