@@ -414,6 +414,4 @@
 [submodule "commissions/timezap/wordpress-prototype"]
 	path = commissions/timezap/wordpress-prototype
 	url = git@gitlab.com:eppiq/timezap/wordpress-prototype.git
-[submodule "mine/haskell/moveme"]
-	path = mine/haskell/moveme
-	url = git@github.com:danwdart/moveme.git
+	
