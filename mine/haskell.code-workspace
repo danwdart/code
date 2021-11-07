@@ -55,6 +55,12 @@
 		{
 			"name": "code",
 			"path": ".."
+		},
+		{
+			"path": "../contrib/wai"
+		},
+		{
+			"path": "../contrib/hs-webdriver"
 		}
 	],
 	"settings": {
