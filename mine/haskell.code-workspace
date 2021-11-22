@@ -25,6 +25,10 @@
 			"path": "haskell/funky-birthdays"
 		},
 		{
+			"name": "hs-stdlib",
+			"path": "haskell/hs-stdlib"
+		},
+		{
 			"name": "jobfinder",
 			"path": "haskell/jobfinder"
 		},
@@ -33,16 +37,8 @@
 			"path": "haskell/websites"
 		},
 		{
-			"name": "fsutils",
-			"path": "../contrib/fsutils"
-		},
-		{
 			"name": "haskell",
 			"path": "multi/projects/haskell"
-		},
-		{
-			"name": "hs-stdlib",
-			"path": "haskell/hs-stdlib"
 		},
 		{
 			"name": "system",
@@ -55,12 +51,6 @@
 		{
 			"name": "code",
 			"path": ".."
-		},
-		{
-			"path": "../contrib/wai"
-		},
-		{
-			"path": "../contrib/hs-webdriver"
 		}
 	],
 	"settings": {

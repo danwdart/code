@@ -4,16 +4,24 @@ set -euxo pipefail
 # TODO
 trap pwd ERR
 
-buildDefault() {
-    nix-build # | cachix push websites
+pushDefault() {
     # This gives a warning about --add-root but we already added the root above.
     nix-store -qR --include-outputs $(nix-instantiate) | cachix push websites
 }
 
-buildShell() {
-    nix-build shell.nix -o result-shell #  | cachix push websites
+buildDefault() {
+    nix-build # | cachix push websites
+    # pushDefault
+}
+
+pushShell() {
     # This gives a warning about --add-root but we already added the root above.
     nix-store -qR --include-outputs $(nix-instantiate shell.nix) | cachix push websites
+}
+
+buildShell() {
+    nix-build shell.nix -o result-shell #  | cachix push websites
+    # pushShell
 }
 
 buildReflex() {
@@ -28,25 +36,26 @@ buildReflex() {
     #    #nix-store -qR --include-outputs $(nix-instantiate shell-wasm.nix) | cachix push websites
     #fi
     
-    nix-build -A ghc.common -o result/common
-    nix-store -qR --include-outputs $(nix-instantiate -A ghc.common) | cachix push websites
+    #nix-build -A ghc.common -o result/common
+    #nix-store -qR --include-outputs $(nix-instantiate -A ghc.common) | cachix push websites
 
-    nix-build -A ghc.backend -o result/backend
-    nix-store -qR --include-outputs $(nix-instantiate -A ghc.backend) | cachix push websites
+    #nix-build -A ghc.backend -o result/backend
+    #nix-store -qR --include-outputs $(nix-instantiate -A ghc.backend) | cachix push websites
 
-    nix-build -A ghc.frontend -o result/frontend-ghc
-    nix-store -qR --include-outputs $(nix-instantiate -A ghc.frontend) | cachix push websites
+    #nix-build -A ghc.frontend -o result/frontend-ghc
+    #nix-store -qR --include-outputs $(nix-instantiate -A ghc.frontend) | cachix push websites
 
-    nix-build -A ghcjs.common -o result/common-ghcjs
-    nix-store -qR --include-outputs $(nix-instantiate -A ghcjs.common) | cachix push websites
+    #nix-build -A ghcjs.common -o result/common-ghcjs
+    #nix-store -qR --include-outputs $(nix-instantiate -A ghcjs.common) | cachix push websites
 
-    nix-build -A ghcjs.frontend -o result/frontend
-    nix-store -qR --include-outputs $(nix-instantiate -A ghcjs.frontend) | cachix push websites
+    #nix-build -A ghcjs.frontend -o result/frontend
+    #nix-store -qR --include-outputs $(nix-instantiate -A ghcjs.frontend) | cachix push websites
 
     # nix-build -A android.frontend -o result/android # Too much memory and OOM crashes
     # Infinite recursion errors
     # nix-build -A wasm.common -o result/common-wasm
     # nix-build -A wasm.frontend -o result/frontend-wasm
+    echo skipping for now
 }
 
 buildReflexOrDefault() {
