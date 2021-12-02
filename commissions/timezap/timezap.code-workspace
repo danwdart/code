@@ -17,5 +17,8 @@
 		{
 			"path": "provisioning"
 		}
-	]
+	],
+	"settings": {
+		"nixEnvSelector.nixFile": "${workspaceRoot}/shell.nix"
+	}
 }
