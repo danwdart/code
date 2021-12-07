@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euxo pipefail
+set -euo pipefail
 # Show where we were when there was a problem.
 # TODO
 trap pwd ERR
@@ -11,7 +11,7 @@ pushDefault() {
 
 buildDefault() {
     nix-build # | cachix push websites
-    # pushDefault
+    # pushDefault &
 }
 
 pushShell() {
@@ -21,7 +21,7 @@ pushShell() {
 
 buildShell() {
     nix-build shell.nix -o result-shell #  | cachix push websites
-    # pushShell
+    pushShell &
 }
 
 buildReflex() {
@@ -68,31 +68,45 @@ buildReflexOrDefault() {
 }
 
 ORIG=$(pwd)
-CODEDIRS="$PWD/mine $PWD/contrib"
+CODEDIRS="$PWD/mine" # $PWD/contrib
 for CODEDIR in $CODEDIRS
 do
     cd $CODEDIR
     echo Finding Nix projects in $CODEDIR...
-    for FILE in $(find $CODEDIR -name default.nix | grep -v external | grep -v ghcjs | grep -v dist-newstyle | grep -v wasm-cross | grep -v reflex-platform | grep -v templates)
+    PROJECTS=$(find $CODEDIR -name default.nix | grep -v external | grep -v ghcjs | grep -v dist-newstyle | grep -v wasm-cross | grep -v reflex-platform | grep -v templates)
+    NUMPROJECTS=0
+    for FILE in $PROJECTS
     do
+        ((NUMPROJECTS+=1))
+    done
+    PROJECTNUMBER=0
+    for FILE in $PROJECTS
+    do
+        ((PROJECTNUMBER+=1))
         DIRLOC=$(dirname $FILE)
-        echo Entering $DIRLOC
+        BASE=$(basename $DIRLOC)
+        PREFIX="$BASE ($PROJECTNUMBER/$NUMPROJECTS) >>> "
+        PREFIX_SED="$BASE ($PROJECTNUMBER\/$NUMPROJECTS) >>> "
+        
+        # Uncomment to skip
+        if [ 11 -gt $PROJECTNUMBER ]; then continue; fi
+
+        echo "$PREFIX Entering $DIRLOC"
         cd $DIRLOC
         if [[ -f .gitmodules ]]
         then
-            echo .gitmodules found, updating...
+            echo "$PREFIX .gitmodules found, updating..."
             git submodule update --init --recursive
         fi
         if [[ -f shell.nix ]]
         then
-            echo shell.nix detected, will build both shell.nix and default.nix
-            echo Building shell.nix...
-            buildShell
-            echo Building default.nix...
-            buildReflexOrDefault
+            echo "$PREFIX Building shell.nix..."
+            buildShell 2>&1 | sed "s/^/$PREFIX_SED /g"
+            echo "$PREFIX Building default.nix..."
+            buildReflexOrDefault 2>&1 | sed "s/^/$PREFIX_SED /g"
         else
-            echo No shell.nix detected, building default.nix
-            buildReflexOrDefault
+            echo "$PREFIX No shell.nix detected, building default.nix"
+            buildReflexOrDefault 2>&1 | sed "s/^/$PREFIX_SED /g"
         fi
     done
     cd $CODEDIR
