@@ -51,6 +51,51 @@
 		{
 			"name": "code",
 			"path": ".."
+		},
+		{
+			"path": "../commissions/roqqett/zero-x"
+		},
+		{
+			"path": "../contrib/ddate"
+		},
+		{
+			"path": "../contrib/fsutils"
+		},
+		{
+			"path": "../contrib/generic-lens"
+		},
+		{
+			"path": "../contrib/generics-sop"
+		},
+		{
+			"path": "../contrib/hs-gedcom"
+		},
+		{
+			"path": "../contrib/hspec-webdriver"
+		},
+		{
+			"path": "../contrib/hs-webdriver"
+		},
+		{
+			"path": "../contrib/humblr"
+		},
+		{
+			"path": "../contrib/imap"
+		},
+		{
+			"path": "../contrib/nixos-manager"
+		},
+		{
+			"path": "../contrib/quickspec"
+		},
+		{
+			"path": "../contrib/tree-diff"
+		},
+		{
+			"path": "../contrib/twee"
+		},
+		{
+			"path": "../contrib/wai"
 		}
 	],
 	"settings": {
