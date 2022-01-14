@@ -25,11 +25,6 @@ buildShell() {
 }
 
 buildReflex() {
-    #if [[ -f shell-ghcjs.nix ]]
-    #then
-    #    #nix-build shell-ghcjs.nix
-    #    #nix-store -qR --include-outputs $(nix-instantiate shell-ghcjs.nix) | cachix push websites
-    #fi
     #if [[ -f shell-wasm.nix ]]
     #then
     #    #nix-build shell-wasm.nix
