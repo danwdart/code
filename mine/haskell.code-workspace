@@ -53,49 +53,71 @@
 			"path": ".."
 		},
 		{
+			"name": "interpreter-test",
+			"path": "../commissions/mlabs/interpreter-test"
+		},
+		{
+			"name": "zero-x",
 			"path": "../commissions/roqqett/zero-x"
 		},
 		{
+			"name": "ddate",
 			"path": "../contrib/ddate"
 		},
 		{
+			"name": "fsutils",
 			"path": "../contrib/fsutils"
 		},
 		{
+			"name": "generic-lens",
 			"path": "../contrib/generic-lens"
 		},
 		{
+			"name": "generics-sop",
 			"path": "../contrib/generics-sop"
 		},
 		{
+			"name": "hs-gedcom",
 			"path": "../contrib/hs-gedcom"
 		},
 		{
+			"name": "hspec-webdriver",
 			"path": "../contrib/hspec-webdriver"
 		},
 		{
+			"name": "hs-webdriver",
 			"path": "../contrib/hs-webdriver"
 		},
 		{
+			"name": "humblr",
 			"path": "../contrib/humblr"
 		},
 		{
+			"name": "imap",
 			"path": "../contrib/imap"
 		},
 		{
+			"name": "nixos-manager",
 			"path": "../contrib/nixos-manager"
 		},
 		{
+			"name": "quickspec",
 			"path": "../contrib/quickspec"
 		},
 		{
+			"name": "tree-diff",
 			"path": "../contrib/tree-diff"
 		},
 		{
+			"name": "twee",
 			"path": "../contrib/twee"
 		},
 		{
+			"name": "wai",
 			"path": "../contrib/wai"
+		},
+		{
+			"path": "../contrib/barbies"
 		}
 	],
 	"settings": {
