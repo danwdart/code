@@ -399,19 +399,3 @@
 [submodule "mine/haskell/hs-stdlib"]
 	path = mine/haskell/hs-stdlib
 	url = git@github.com:JolHarg/hs-stdlib.git
-[submodule "commissions/timezap/multi-browser-extension"]
-	path = commissions/timezap/multi-browser-extension
-	url = git@gitlab.com:eppiq/timezap/multi-browser-extension.git
-[submodule "commissions/timezap/provisioning"]
-	path = commissions/timezap/provisioning
-	url = git@gitlab.com:eppiq/timezap/provisioning.git
-[submodule "commissions/timezap/web-api"]
-	path = commissions/timezap/web-api
-	url = git@gitlab.com:eppiq/timezap/web-api.git
-[submodule "commissions/timezap/web-app"]
-	path = commissions/timezap/web-app
-	url = git@gitlab.com:eppiq/timezap/web-app.git
-[submodule "commissions/timezap/wordpress-prototype"]
-	path = commissions/timezap/wordpress-prototype
-	url = git@gitlab.com:eppiq/timezap/wordpress-prototype.git
-	
