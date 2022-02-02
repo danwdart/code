@@ -118,6 +118,12 @@
 		},
 		{
 			"path": "../contrib/barbies"
+		},
+		{
+			"path": "../contrib/peoplemon"
+		},
+		{
+			"path": "../contrib/frag"
 		}
 	],
 	"settings": {
