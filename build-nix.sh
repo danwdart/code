@@ -90,7 +90,7 @@ do
         PREFIX_SED="$BASE ($PROJECTNUMBER\/$NUMPROJECTS) >>> "
         
         # Uncomment to skip
-        # if [ 17 -gt $PROJECTNUMBER ]; then continue; fi
+        # if [ 5 -gt $PROJECTNUMBER ]; then continue; fi
 
         echo "$PREFIX Entering $DIRLOC"
         cd $DIRLOC

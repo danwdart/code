@@ -57,10 +57,6 @@
 			"path": "../commissions/mlabs/interpreter-test"
 		},
 		{
-			"name": "zero-x",
-			"path": "../commissions/roqqett/zero-x"
-		},
-		{
 			"name": "ddate",
 			"path": "../contrib/ddate"
 		},
