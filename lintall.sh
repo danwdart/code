@@ -7,7 +7,7 @@ touch ~/.parallel/will-cite
 INITDIR=~/code
 cd $INITDIR
 echo Finding Haskell projects...
-for DIRLOC in ~/code/mine/haskell ~/code/mine/multi/projects/haskell
+for DIRLOC in ~/code/mine/haskell ~/code/mine/multi/projects/haskell ~/code/contrib
 do
     echo Using repos location $DIRLOC
     cd $DIRLOC
