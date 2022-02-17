@@ -120,6 +120,15 @@
 		},
 		{
 			"path": "../contrib/frag"
+		},
+		{
+			"path": "../contrib/reflex-gloss"
+		},
+		{
+			"path": "../contrib/patch"
+		},
+		{
+			"path": "../contrib/wordle-hs"
 		}
 	],
 	"settings": {
