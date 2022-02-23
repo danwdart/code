@@ -9,6 +9,10 @@
 			"path": "haskell/chatter"
 		},
 		{
+			"name": "coinflicker",
+			"path": "haskell/coinflicker"
+		},
+		{
 			"name": "compositions",
 			"path": "haskell/compositions"
 		},
@@ -113,21 +117,27 @@
 			"path": "../contrib/wai"
 		},
 		{
+			"name": "barbies",
 			"path": "../contrib/barbies"
 		},
 		{
+			"name": "peoplemon",
 			"path": "../contrib/peoplemon"
 		},
 		{
+			"name": "frag",
 			"path": "../contrib/frag"
 		},
 		{
+			"name": "reflex-gloss",
 			"path": "../contrib/reflex-gloss"
 		},
 		{
+			"name": "patch",
 			"path": "../contrib/patch"
 		},
 		{
+			"name": "wordle-hs",
 			"path": "../contrib/wordle-hs"
 		}
 	],

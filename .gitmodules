@@ -399,3 +399,57 @@
 [submodule "mine/haskell/hs-stdlib"]
 	path = mine/haskell/hs-stdlib
 	url = git@github.com:JolHarg/hs-stdlib.git
+[submodule "contrib/barbies"]
+	path = contrib/barbies
+	url = git@github.com:danwdart/barbies.git
+[submodule "contrib/ddate"]
+	path = contrib/ddate
+	url = git@github.com:danwdart/ddate.git
+[submodule "contrib/frag"]
+	path = contrib/frag
+	url = git@github.com:danwdart/frag.git
+[submodule "contrib/generic-lens"]
+	path = contrib/generic-lens
+	url = git@github.com:danwdart/generic-lens.git
+[submodule "contrib/generics-sop"]
+	path = contrib/generics-sop
+	url = git@github.com:danwdart/generics-sop.git
+[submodule "contrib/hs-gedcom"]
+	path = contrib/hs-gedcom
+	url = git@github.com:danwdart/hs-gedcom.git
+[submodule "contrib/hs-webdriver"]
+	path = contrib/hs-webdriver
+	url = git@github.com:danwdart/hs-webdriver.git
+[submodule "contrib/imap"]
+	path = contrib/imap
+	url = git@github.com:danwdart/imap.git
+[submodule "contrib/nixos-manager"]
+	path = contrib/nixos-manager
+	url = git@github.com:danwdart/nixos-manager.git
+[submodule "contrib/peoplemon"]
+	path = contrib/peoplemon
+	url = git@github.com:danwdart/peoplemon.git
+[submodule "contrib/quickspec"]
+	path = contrib/quickspec
+	url = git@github.com:danwdart/quickspec.git
+[submodule "contrib/tree-diff"]
+	path = contrib/tree-diff
+	url = git@github.com:danwdart/tree-diff.git
+[submodule "contrib/twee"]
+	path = contrib/twee
+	url = git@github.com:danwdart/twee.git
+[submodule "contrib/wai"]
+	path = contrib/wai
+	url = git@github.com:danwdart/wai.git
+[submodule "contrib/patch"]
+	path = contrib/patch
+	url = git@github.com:danwdart/patch.git
+[submodule "contrib/reflex-gloss"]
+	path = contrib/reflex-gloss
+	url = git@github.com:danwdart/reflex-gloss.git
+[submodule "contrib/wordle-hs"]
+	path = contrib/wordle-hs
+	url = git@github.com:danwdart/wordle-hs.git
+[submodule "mine/haskell/coinflicker"]
+	path = mine/haskell/coinflicker
+	url = git@github.com:danwdart/coinflicker.git
