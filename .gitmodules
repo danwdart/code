@@ -453,3 +453,9 @@
 [submodule "mine/haskell/coinflicker"]
 	path = mine/haskell/coinflicker
 	url = git@github.com:danwdart/coinflicker.git
+[submodule "contrib/nix-home-manager"]
+	path = contrib/nix-home-manager
+	url = git@github.com:danwdart/nix-home-manager.git
+[submodule "contrib/home-manager"]
+	path = contrib/home-manager
+	url = git@github.com:danwdart/home-manager.git

@@ -61,8 +61,16 @@
 			"path": "../commissions/mlabs/interpreter-test"
 		},
 		{
+			"name": "barbies",
+			"path": "../contrib/barbies"
+		},
+		{
 			"name": "ddate",
 			"path": "../contrib/ddate"
+		},
+		{
+			"name": "frag",
+			"path": "../contrib/frag"
 		},
 		{
 			"name": "fsutils",
@@ -75,6 +83,10 @@
 		{
 			"name": "generics-sop",
 			"path": "../contrib/generics-sop"
+		},
+		{
+			"name": "home-manager",
+			"path": "../contrib/home-manager"
 		},
 		{
 			"name": "hs-gedcom",
@@ -101,6 +113,18 @@
 			"path": "../contrib/nixos-manager"
 		},
 		{
+			"name": "patch",
+			"path": "../contrib/patch"
+		},
+		{
+			"name": "peoplemon",
+			"path": "../contrib/peoplemon"
+		},
+		{
+			"name": "reflex-gloss",
+			"path": "../contrib/reflex-gloss"
+		},
+		{
 			"name": "quickspec",
 			"path": "../contrib/quickspec"
 		},
@@ -115,26 +139,6 @@
 		{
 			"name": "wai",
 			"path": "../contrib/wai"
-		},
-		{
-			"name": "barbies",
-			"path": "../contrib/barbies"
-		},
-		{
-			"name": "peoplemon",
-			"path": "../contrib/peoplemon"
-		},
-		{
-			"name": "frag",
-			"path": "../contrib/frag"
-		},
-		{
-			"name": "reflex-gloss",
-			"path": "../contrib/reflex-gloss"
-		},
-		{
-			"name": "patch",
-			"path": "../contrib/patch"
 		},
 		{
 			"name": "wordle-hs",
