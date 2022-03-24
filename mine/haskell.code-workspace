@@ -45,6 +45,10 @@
 			"path": "multi/projects/haskell"
 		},
 		{
+			"name": "haskell-tools",
+			"path": "nix/haskell-tools"
+		},
+		{
 			"name": "system",
 			"path": "nix/system"
 		},
@@ -57,18 +61,6 @@
 			"path": ".."
 		},
 		{
-			"name": "interpreter-test",
-			"path": "../commissions/mlabs/interpreter-test"
-		},
-		{
-			"name": "barbies",
-			"path": "../contrib/barbies"
-		},
-		{
-			"name": "ddate",
-			"path": "../contrib/ddate"
-		},
-		{
 			"name": "frag",
 			"path": "../contrib/frag"
 		},
@@ -77,20 +69,8 @@
 			"path": "../contrib/fsutils"
 		},
 		{
-			"name": "generic-lens",
-			"path": "../contrib/generic-lens"
-		},
-		{
-			"name": "generics-sop",
-			"path": "../contrib/generics-sop"
-		},
-		{
 			"name": "home-manager",
 			"path": "../contrib/home-manager"
-		},
-		{
-			"name": "hs-gedcom",
-			"path": "../contrib/hs-gedcom"
 		},
 		{
 			"name": "hspec-webdriver",
@@ -105,16 +85,8 @@
 			"path": "../contrib/humblr"
 		},
 		{
-			"name": "imap",
-			"path": "../contrib/imap"
-		},
-		{
 			"name": "nixos-manager",
 			"path": "../contrib/nixos-manager"
-		},
-		{
-			"name": "patch",
-			"path": "../contrib/patch"
 		},
 		{
 			"name": "peoplemon",
@@ -125,24 +97,13 @@
 			"path": "../contrib/reflex-gloss"
 		},
 		{
-			"name": "quickspec",
-			"path": "../contrib/quickspec"
+			"path": "../contrib/grocy"
 		},
 		{
-			"name": "tree-diff",
-			"path": "../contrib/tree-diff"
+			"path": "../contrib/grocy-android"
 		},
 		{
-			"name": "twee",
-			"path": "../contrib/twee"
-		},
-		{
-			"name": "wai",
-			"path": "../contrib/wai"
-		},
-		{
-			"name": "wordle-hs",
-			"path": "../contrib/wordle-hs"
+			"path": "../contrib/pantry_party"
 		}
 	],
 	"settings": {
