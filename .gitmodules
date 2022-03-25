@@ -459,3 +459,6 @@
 [submodule "contrib/home-manager"]
 	path = contrib/home-manager
 	url = git@github.com:danwdart/home-manager.git
+[submodule "contrib/house"]
+	path = contrib/house
+	url = git@github.com:danwdart/house.git
