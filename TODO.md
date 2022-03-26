@@ -1,4 +1,3 @@
-pic on website
 Factory pattern haskell
 Hanswers blog iso vs endo
 Data.Fixed
@@ -7,15 +6,11 @@ Arp host bridged network for multi internal sites
 Email server
 Bifunctor arrow
 Arrow based program
-Fix tools template
-Fix all pkgs - use it
 Stddebug
-Mtlify websites
 Network
 Irc bot
 Refresh dom
 Arp add vms to lan
-Slow digit calculation parallelism benchmark
 Docoverage
 Nix build derivation for vm
 Own unliftio instances
@@ -34,11 +29,8 @@ New writer and cont functions
 For transformers
 
 Monadconsole
-
 Monadfile for tests
-
 Lift unlift profunctor or bracket
-
 Ban functions unliftio proposed to help with - things that discard
 
 Practice folding
@@ -49,7 +41,6 @@ Test online things
 Wikidata
 Typeclass the db
 Reader for free monad
-
 
 Make coins frp
 
