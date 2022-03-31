@@ -1,21 +1,31 @@
 {
 	"folders": [
 		{
+			"name": "cricket",
 			"path": "cpp/cricket"
 		},
 		{
+			"name": "demo",
 			"path": "multi/projects/c/demo"
 		},
 		{
+			"name": "em",
 			"path": "multi/projects/c/em"
 		},
 		{
+			"name": "functional",
 			"path": "multi/projects/c/functional"
 		},
 		{
+			"name": "shared",
+			"path": "multi/projects/c/shared"
+		},
+		{
+			"name": "uefi",
 			"path": "multi/projects/c/uefi"
 		},
 		{
+			"name": "x86",
 			"path": "multi/projects/c/x86"
 		}
 	]
