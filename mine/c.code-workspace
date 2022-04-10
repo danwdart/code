@@ -27,6 +27,9 @@
 		{
 			"name": "x86",
 			"path": "multi/projects/c/x86"
+		},
+		{
+			"path": "c/danos32"
 		}
 	]
 }
