@@ -71,12 +71,13 @@ CODEDIRNUMBER=0
 for CODEDIR in $CODEDIRS
 do
     ((CODEDIRNUMBER+=1))
-    # Uncommnet to skip
+    # Uncomment to skip
     # if [ 2 -gt $CODEDIRNUMBER ]; then continue; fi
 
     cd $CODEDIR
     echo Finding Nix projects in $CODEDIR...
-    PROJECTS=$(find $CODEDIR -name default.nix | grep -v nixos-manager | grep -v home-manager | grep -v haskell-tools | grep -v external | grep -v ghcjs | grep -v dist-newstyle | grep -v wasm-cross | grep -v reflex-platform | grep -v templates | grep -v tumblr-editor | grep -v hs-webdriver | grep -v tree-diff | grep -v warp | grep -v twee) # webdriver
+    # jobfinder, websites
+    PROJECTS=$(find $CODEDIR -name default.nix | grep -v jobfinder | grep -v static | grep -v ffijs | grep -v websites | grep -v nixos-manager | grep -v home-manager | grep -v haskell-tools | grep -v external | grep -v ghcjs | grep -v dist-newstyle | grep -v wasm-cross | grep -v reflex-platform | grep -v templates | grep -v tumblr-editor | grep -v hs-webdriver | grep -v tree-diff | grep -v warp | grep -v twee) # webdriver
     NUMPROJECTS=0
     for FILE in $PROJECTS
     do
@@ -90,7 +91,7 @@ do
         ((PROJECTNUMBER+=1))
 
         # Uncomment to skip
-        # if [ 4 -gt $PROJECTNUMBER ]; then continue; fi
+        # if [ 21 -gt $PROJECTNUMBER ]; then continue; fi
 
         DIRLOC=$(dirname $FILE)
         BASE=$(basename $DIRLOC)
