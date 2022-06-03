@@ -77,7 +77,7 @@ do
     cd $CODEDIR
     echo Finding Nix projects in $CODEDIR...
     # jobfinder, websites
-    PROJECTS=$(find $CODEDIR -name default.nix | grep -v jobfinder | grep -v static | grep -v ffijs | grep -v websites | grep -v nixos-manager | grep -v home-manager | grep -v haskell-tools | grep -v external | grep -v ghcjs | grep -v dist-newstyle | grep -v wasm-cross | grep -v reflex-platform | grep -v templates | grep -v tumblr-editor | grep -v hs-webdriver | grep -v tree-diff | grep -v warp | grep -v twee) # webdriver
+    PROJECTS=$(find $CODEDIR -name default.nix | grep -v jobfinder | grep -v consolefrp | grep -v static | grep -v ffijs | grep -v websites | grep -v nixos-manager | grep -v home-manager | grep -v haskell-tools | grep -v external | grep -v ghcjs | grep -v dist-newstyle | grep -v wasm-cross | grep -v reflex-platform | grep -v templates | grep -v tumblr-editor | grep -v hs-webdriver | grep -v tree-diff | grep -v warp | grep -v twee) # webdriver
     NUMPROJECTS=0
     for FILE in $PROJECTS
     do
