@@ -59,51 +59,6 @@
 		{
 			"name": "code",
 			"path": ".."
-		},
-		{
-			"name": "frag",
-			"path": "../contrib/frag"
-		},
-		{
-			"name": "fsutils",
-			"path": "../contrib/fsutils"
-		},
-		{
-			"name": "home-manager",
-			"path": "../contrib/home-manager"
-		},
-		{
-			"name": "hspec-webdriver",
-			"path": "../contrib/hspec-webdriver"
-		},
-		{
-			"name": "hs-webdriver",
-			"path": "../contrib/hs-webdriver"
-		},
-		{
-			"name": "humblr",
-			"path": "../contrib/humblr"
-		},
-		{
-			"name": "nixos-manager",
-			"path": "../contrib/nixos-manager"
-		},
-		{
-			"name": "peoplemon",
-			"path": "../contrib/peoplemon"
-		},
-		{
-			"name": "reflex-gloss",
-			"path": "../contrib/reflex-gloss"
-		},
-		{
-			"path": "../contrib/grocy"
-		},
-		{
-			"path": "../contrib/grocy-android"
-		},
-		{
-			"path": "../contrib/pantry_party"
 		}
 	],
 	"settings": {

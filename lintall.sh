@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#! nix-shell -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/haskell-updates.tar.gz -p haskell.packages.ghc923.stylish-haskell haskell.packages.ghc923.hlint haskell.packages.ghc902.apply-refact parallel -i bash
+#! nix-shell -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/haskell-updates.tar.gz -p haskell.packages.ghc941.stylish-haskell haskell.packages.ghc941.hlint haskell.packages.ghc902.apply-refact parallel -i bash
 set -e
 mkdir ~/.parallel || echo ".parallel exists"
 touch ~/.parallel/will-cite
