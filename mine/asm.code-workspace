@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "danos",
+			"path": "asm/danos"
+		},
+		{
+			"name": "asm",
+			"path": "multi/projects/asm"
+		}
+	],
+	"settings": {}
+}
