@@ -5,6 +5,10 @@
 			"path": "cpp/cricket"
 		},
 		{
+			"name": "cross",
+			"path": "multi/projects/c/cross"
+		},
+		{
 			"name": "demo",
 			"path": "multi/projects/c/demo"
 		},
@@ -21,6 +25,10 @@
 			"path": "multi/projects/c/shared"
 		},
 		{
+			"name": "static",
+			"path": "multi/projects/c/static"
+		},
+		{
 			"name": "uefi",
 			"path": "multi/projects/c/uefi"
 		},
@@ -29,6 +37,7 @@
 			"path": "multi/projects/c/x86"
 		},
 		{
+			"name": "danos32",
 			"path": "c/danos32"
 		}
 	]
