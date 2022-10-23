@@ -110,12 +110,15 @@ do
         ((PROJECTNUMBER+=1))
 
         # Uncomment to skip
-        # if [ 16 -gt $PROJECTNUMBER ]; then continue; fi
+        # if [ 21 -gt $PROJECTNUMBER ]; then continue; fi
 
         DIRLOC=$(dirname $FILE)
         BASE=$(basename $DIRLOC)
 
         # if [[ "chatter" == $BASE || "dubloons" == $BASE || "hs-stdlib" == $BASE || "jobfinder" == $BASE || "9.2.2" == $BASE || "peoplemanager" == $BASE || "tumblr-editor" == $BASE ]]; then continue; fi
+        
+        # waiting for https://github.com/NixOS/nixpkgs/issues/197388
+        if [[ "9.4.2" == $BASE || "peoplemanager" == $BASE ]]; then continue; fi
 
         PREFIX="$BASE ($PROJECTNUMBER/$NUMPROJECTS) >>> "
         PREFIX_SED="$BASE ($PROJECTNUMBER\/$NUMPROJECTS) >>> "
