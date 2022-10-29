@@ -49,6 +49,14 @@
 			"path": "nix/haskell-tools"
 		},
 		{
+			"name": "propagators",
+			"path": "../contrib/propagators"
+		},
+		{
+			"name": "guanxi",
+			"path": "../contrib/guanxi"
+		},
+		{
 			"name": "system",
 			"path": "nix/system"
 		},
