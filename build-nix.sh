@@ -17,49 +17,6 @@ buildShell() {
     pushShell &
 }
 
-buildReflex() {
-    nix-build shell.nix -o result/shell
-    (nix-store -qR --include-outputs $(nix-instantiate shell.nix --add-root result-shell --indirect) | cachix push websites) &
-
-    nix-build shell-ghcjs.nix -o result/shell-ghcjs
-    (nix-store -qR --include-outputs $(nix-instantiate shell-ghcjs.nix --add-root result-shell-ghcjs --indirect) | cachix push websites) &
-
-    #if [[ -f shell-wasm.nix ]]
-    #then
-    #    #nix-build shell-wasm.nix
-    #    #nix-store -qR --include-outputs $(nix-instantiate shell-wasm.nix) | cachix push websites
-    #fi
-
-    nix-build -A ghc.common -o result/common
-    # nix-store -qR --include-outputs $(nix-instantiate -A ghc.common) | cachix push websites
-
-    nix-build -A ghc.backend -o result/backend
-    # nix-store -qR --include-outputs $(nix-instantiate -A ghc.backend) | cachix push websites
-
-    nix-build -A ghc.frontend -o result/frontend-ghc
-    # nix-store -qR --include-outputs $(nix-instantiate -A ghc.frontend) | cachix push websites
-
-    nix-build -A ghcjs.common -o result/common-ghcjs
-    # nix-store -qR --include-outputs $(nix-instantiate -A ghcjs.common) | cachix push websites
-
-    nix-build -A ghcjs.frontend -o result/frontend
-    # nix-store -qR --include-outputs $(nix-instantiate -A ghcjs.frontend) | cachix push websites
-
-    # nix-build -A android.frontend -o result/android # Too much memory and OOM crashes
-    # Infinite recursion errors
-    # nix-build -A wasm.common -o result/common-wasm
-    # nix-build -A wasm.frontend -o result/frontend-wasm
-}
-
-buildReflexOrDefault() {
-    if [[ -d external ]]
-    then
-        buildReflex
-    else
-        buildDefault
-    fi
-}
-
 ORIG=$(pwd)
 CODEDIRS="$PWD/mine $PWD/contrib"
 NUMCODEDIRS=0
@@ -82,7 +39,7 @@ do
         grep -v consolefrp | \
         grep -v static | \
         grep -v ffijs | \
-        grep -v websites | \
+        # grep -v websites | \
         grep -v nixos-manager | \
         grep -v home-manager | \
         grep -v haskell-tools | \
@@ -118,7 +75,7 @@ do
         # if [[ "chatter" == $BASE || "dubloons" == $BASE || "hs-stdlib" == $BASE || "jobfinder" == $BASE || "9.2.2" == $BASE || "peoplemanager" == $BASE || "tumblr-editor" == $BASE ]]; then continue; fi
         
         # waiting for https://github.com/NixOS/nixpkgs/issues/197388
-        if [[ "9.4.2" == $BASE || "peoplemanager" == $BASE ]]; then continue; fi
+        # if [[ "9.4.2" == $BASE || "peoplemanager" == $BASE ]]; then continue; fi
 
         PREFIX="$BASE ($PROJECTNUMBER/$NUMPROJECTS) >>> "
         PREFIX_SED="$BASE ($PROJECTNUMBER\/$NUMPROJECTS) >>> "
@@ -135,10 +92,10 @@ do
             echo "$PREFIX Building shell.nix..."
             buildShell 2>&1 | sed "s/^/$PREFIX_SED /g"
             echo "$PREFIX Building default.nix..."
-            buildReflexOrDefault 2>&1 | sed "s/^/$PREFIX_SED /g"
+            buildDefault 2>&1 | sed "s/^/$PREFIX_SED /g"
         else
             echo "$PREFIX No shell.nix detected, building default.nix"
-            buildReflexOrDefault 2>&1 | sed "s/^/$PREFIX_SED /g"
+            buildDefault 2>&1 | sed "s/^/$PREFIX_SED /g"
         fi
     done
     cd $CODEDIR
