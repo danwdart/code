@@ -99,3 +99,11 @@ Ghcjs manual and release minify
 Override instances by pattern
 Line circle normal mechanics
 Generate terrain with algorithms
+
+Sums of
+    Ascending squares
+    Adjacent squares
+
+More parsing - ungreedy
+
+Stack traces
