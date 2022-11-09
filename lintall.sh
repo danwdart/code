@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#! nix-shell -p haskell.packages.ghc924.stylish-haskell haskell.packages.ghc924.hlint haskell.packages.ghc902.apply-refact parallel -i bash
+#! nix-shell -p haskell.packages.ghc92.stylish-haskell haskell.packages.ghc92.hlint haskell.packages.ghc90.apply-refact parallel -i bash
 set -e
 mkdir ~/.parallel || echo ".parallel exists"
 touch ~/.parallel/will-cite
