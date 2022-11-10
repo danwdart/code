@@ -1,13 +1,7 @@
-Reflex apps are stuck on 9.0.2.
-
 mine
-    9.0.2 because of https://github.com/reflex-frp/patch/issues/42 and possibly more
-    reflex-headless because of https://github.com/reflex-frp/patch/issues/42
+    9.2 because of https://github.com/0xd34df00d/inline-asm/issues/4
+    9.0 because of language-c, language-javascript, avahi, gogol
     funky-birthdays because of https://github.com/chrra/iCalendar/issues/48
-
-contrib
-    reflex-gloss because of https://github.com/reflex-frp/patch/issues/42
-    patch because of https://github.com/reflex-frp/patch/issues/42
 
 Broken:
     hs-webdriver because of aeson 2 compatibility
