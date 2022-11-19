@@ -61,17 +61,13 @@
 	url = git@github.com:danwdart/rawnet-solutions.git
 
 # Mine
-[submodule "mine/asm/danos"]
-	path = mine/asm/danos
+[submodule "mine/multi/danos"]
+	path = mine/multi/danos
 	url = git@github.com:danwdart/danos.git
 	branch = master
 [submodule "mine/blitz/vinski"]
 	path = mine/blitz/vinski
 	url = git@github.com:danwdart/vinski.git
-	branch = master
-[submodule "mine/c/danos32"]
-	path = mine/c/danos32
-	url = git@github.com:danwdart/danos32.git
 	branch = master
 [submodule "mine/cpp/cricket"]
 	path = mine/cpp/cricket
