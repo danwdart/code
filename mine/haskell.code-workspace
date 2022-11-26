@@ -71,6 +71,6 @@
 	],
 	"settings": {
 		"nixEnvSelector.suggestion": false,
-		"nixEnvSelector.nixFile": "${workspaceRoot}/shell.nix"
+		"nixEnvSelector.nixFile": "${workspaceRoot}/default.nix"
 	}
 }
