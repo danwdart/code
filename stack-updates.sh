@@ -19,7 +19,7 @@ do
         then
             echo Updating cabal version in use...
             sed -i '/cabal-version.*/d' *.cabal
-            sed -i '1 s/^/cabal-version:       3.0\n/1' *.cabal
+            sed -i '1 s/^/cabal-version:       3.4\n/1' *.cabal
             git add *.cabal || echo nah
             git commit -m 'update cabal' || echo nah
             git push
