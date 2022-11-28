@@ -26,7 +26,7 @@ git submodule sync;
 # Now actually pull all the modules. I used to use this...
 #
 # git submodule update --init --remote --force --recursive
-# ...but the submodules would check out in detached HEAD state and I 
+# ...but the submodules would check out in detached HEAD state and I
 # didn't like that, so now I do this...
 
 git submodule foreach --recursive 'git checkout $(git config -f $toplevel/.gitmodules submodule.$name.branch || echo master)';

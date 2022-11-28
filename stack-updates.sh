@@ -24,7 +24,7 @@ do
             git commit -m 'update cabal' || echo nah
             git push
         fi
-        
+
         echo Updating stack resolver...
         if [[ $(grep "resolver: nightly" stack.yaml) ]];
         then

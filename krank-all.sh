@@ -21,13 +21,13 @@ do
         BASE=$(basename $DIRLOC)
         PREFIX="$BASE ($PROJECTNUMBER/$NUMPROJECTS) >>> "
         PREFIX_SED="$BASE ($PROJECTNUMBER\/$NUMPROJECTS) >>> "
-        
+
         # Uncomment to skip
         # if [ 17 -gt $PROJECTNUMBER ]; then continue; fi
 
         echo "$PREFIX Entering $DIRLOC"
         cd $DIRLOC
-        
+
         krank *.nix
     done
     cd $CODEDIR

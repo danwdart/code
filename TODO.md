@@ -91,7 +91,7 @@ Compose implies fn type
 
 Default to proxy with show?
 
-Eta = 
+Eta =
 With free monad type interpretation
 
 
