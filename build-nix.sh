@@ -67,10 +67,12 @@ do
         ((PROJECTNUMBER+=1))
 
         # Uncomment to skip
-        # if [ 21 -gt $PROJECTNUMBER ]; then continue; fi
+        # if [ 22 -gt $PROJECTNUMBER ]; then echo Skipping $FILE; continue; fi
 
         DIRLOC=$(dirname $FILE)
         BASE=$(basename $DIRLOC)
+
+        if [[ "websites" == $BASE ]]; then continue; fi
 
         # if [[ "chatter" == $BASE || "dubloons" == $BASE || "hs-stdlib" == $BASE || "jobfinder" == $BASE || "9.2.2" == $BASE || "peoplemanager" == $BASE || "tumblr-editor" == $BASE ]]; then continue; fi
 
