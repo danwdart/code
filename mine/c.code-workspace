@@ -39,6 +39,15 @@
 		{
 			"name": "danos32",
 			"path": "c/danos32"
+		},
+		{
+			"path": "multi/projects/c/pico"
 		}
-	]
+	],
+	"settings": {
+		"files.associations": {
+			"functional": "c",
+			"cstddef": "c"
+		}
+	}
 }
