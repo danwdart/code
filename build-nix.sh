@@ -6,6 +6,7 @@ trap pwd ERR
 
 buildDefault() {
     nix-build # | cachix push websites
+    nix-shell shell.nix --run "cabal new-build all"
 }
 
 pushShell() {
@@ -36,10 +37,10 @@ do
     # jobfinder, websites
     PROJECTS=$(find $CODEDIR -name default.nix | \
         grep -v jobfinder | \
+        grep -v family | \
         grep -v consolefrp | \
         grep -v static | \
         grep -v ffijs | \
-        # grep -v websites | \
         grep -v nixos-manager | \
         grep -v home-manager | \
         grep -v haskell-tools | \
@@ -67,12 +68,12 @@ do
         ((PROJECTNUMBER+=1))
 
         # Uncomment to skip
-        # if [ 22 -gt $PROJECTNUMBER ]; then echo Skipping $FILE; continue; fi
+        # if [ 14 -gt $PROJECTNUMBER ]; then echo Skipping $FILE; continue; fi
 
         DIRLOC=$(dirname $FILE)
         BASE=$(basename $DIRLOC)
 
-        if [[ "websites" == $BASE ]]; then continue; fi
+        # if [[ "family" == $BASE ]]; then continue; fi
 
         # if [[ "chatter" == $BASE || "dubloons" == $BASE || "hs-stdlib" == $BASE || "jobfinder" == $BASE || "9.2.2" == $BASE || "peoplemanager" == $BASE || "tumblr-editor" == $BASE ]]; then continue; fi
 
