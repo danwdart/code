@@ -17,15 +17,16 @@ do
         echo .gitmodules found, updating...
         git submodule update --init --recursive
     fi
-    rm package-lock.json || echo irrelevant
-    rm yarn.lock || echo irrelevant
+    rm package-lock.json || echo "nothing to remove"
+    rm yarn.lock || echo "nothing to remove"
     ncu -ut greatest
+    npm install --package-lock-only || echo "couldn't create ourselves a package-lock.json, eh."
     npm install || echo "not all that bad in honesty it'll really just be my machine we just won't have a lockfile"
     npm audit fix || echo "yeah that's okay"
     git add package.json || echo "well if there's nothing there's nothing tbh"
     git add package-lock.json || echo "well if there's nothing there's nothing tbh"
-    git commit -m "npm updates for $BASE" || echo nah
+    git commit -m "npm updates for $BASE" || echo "Nothing to commit, don't care"
     git push
 done
 cd $CODEDIR
-echo Done!
+echo "Done!"

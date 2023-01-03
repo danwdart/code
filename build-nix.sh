@@ -38,23 +38,18 @@ do
     PROJECTS=$(find $CODEDIR -name default.nix | \
         grep -v jobfinder | \
         grep -v family | \
-        grep -v consolefrp | \
-        grep -v static | \
+        # fatal: Could not parse object 'cff413cfad99d6a2c6594a286b9d7446fc357ff3'.
+        # grep -v consolefrp | \
+        # grep -v static | \
         grep -v ffijs | \
-        grep -v nixos-manager | \
-        grep -v home-manager | \
         grep -v haskell-tools | \
         grep -v external | \
         grep -v ghcjs | \
         grep -v dist-newstyle | \
-        grep -v wasm-cross | \
-        grep -v reflex-platform | \
-        grep -v templates | \
-        grep -v tumblr-editor | \
-        grep -v hs-webdriver | \
-        grep -v tree-diff | \
-        grep -v warp | \
-        grep -v twee) # webdriver
+        grep -v reflex-platform
+        # grep -v tumblr-editor | \
+        # grep -v hs-webdriver | \
+        )
     NUMPROJECTS=0
     for FILE in $PROJECTS
     do
@@ -68,7 +63,7 @@ do
         ((PROJECTNUMBER+=1))
 
         # Uncomment to skip
-        # if [ 14 -gt $PROJECTNUMBER ]; then echo Skipping $FILE; continue; fi
+        if [ 10 -gt $PROJECTNUMBER ]; then echo Skipping $FILE; continue; fi
 
         DIRLOC=$(dirname $FILE)
         BASE=$(basename $DIRLOC)
