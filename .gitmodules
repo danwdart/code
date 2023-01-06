@@ -458,3 +458,6 @@
 [submodule "contrib/house"]
 	path = contrib/house
 	url = git@github.com:danwdart/house.git
+[submodule "mine/nix/haskell-tools"]
+	path = mine/nix/haskell-tools
+	url = git@github.com:danwdart/haskell-tools.git
