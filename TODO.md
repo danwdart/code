@@ -107,3 +107,5 @@ Sums of
 More parsing - ungreedy
 
 Stack traces
+
+Ability to backup git ignored/untracked files only or commit somewhere else
