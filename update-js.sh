@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#! nix-shell -p nodejs nodePackages.npm nodePackages.npm-check-updates python -i bash
+#! nix-shell -p nodejs nodePackages.npm nodePackages.npm-check-updates python3 -i bash
 set -euxo pipefail
 
 CODEDIR=$PWD/mine
@@ -22,7 +22,7 @@ do
     ncu -ut greatest
     npm install --package-lock-only || echo "couldn't create ourselves a package-lock.json, eh."
     npm install || echo "not all that bad in honesty it'll really just be my machine we just won't have a lockfile"
-    npm audit fix || echo "yeah that's okay"
+    npm audit fix --force || echo "yeah that's okay"
     git add package.json || echo "well if there's nothing there's nothing tbh"
     git add package-lock.json || echo "well if there's nothing there's nothing tbh"
     git commit -m "npm updates for $BASE" || echo "Nothing to commit, don't care"

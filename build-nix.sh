@@ -18,6 +18,11 @@ buildShell() {
     pushShell &
 }
 
+help() {
+    echo "Usage: $0 (n)"
+    echo "n: "
+}
+
 ORIG=$(pwd)
 CODEDIRS="$PWD/mine $PWD/contrib"
 NUMCODEDIRS=0
@@ -46,6 +51,7 @@ do
         grep -v external | \
         grep -v ghcjs | \
         grep -v dist-newstyle | \
+        grep -v tumblr-api | \
         grep -v reflex-platform
         # grep -v tumblr-editor | \
         # grep -v hs-webdriver | \
@@ -63,7 +69,11 @@ do
         ((PROJECTNUMBER+=1))
 
         # Uncomment to skip
-        if [ 10 -gt $PROJECTNUMBER ]; then echo Skipping $FILE; continue; fi
+        if [[ $# > 0 && $1 -gt $PROJECTNUMBER ]]
+        then
+            echo Skipping $FILE
+            continue
+        fi
 
         DIRLOC=$(dirname $FILE)
         BASE=$(basename $DIRLOC)
