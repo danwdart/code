@@ -37,6 +37,10 @@
 			"path": "haskell/jobfinder"
 		},
 		{
+			"name": "ntfe",
+			"path": "haskell/ntfe"
+		},
+		{
 			"name": "websites",
 			"path": "haskell/websites"
 		},
@@ -47,14 +51,6 @@
 		{
 			"name": "haskell-tools",
 			"path": "nix/haskell-tools"
-		},
-		{
-			"name": "propagators",
-			"path": "../contrib/propagators"
-		},
-		{
-			"name": "guanxi",
-			"path": "../contrib/guanxi"
 		},
 		{
 			"name": "system",
