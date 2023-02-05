@@ -124,7 +124,7 @@ stan                        = lib.dontCheck ((ghc92.override {
     trial-tomland = lib.doJailbreak (lib.markUnbroken super.trial-tomland);
     clay = lib.doJailbreak super.clay;
     slist = lib.doJailbreak super.slist;
-    # relude 1.0.0.1: Module ‘Data.Semigroup’ does not export ‘Option(..)’ if using ghc94
+    # relude 1.0.0.1: Module ‘Data.Semigroup’ does not export ‘Option(..)’ if using ghc92
     # relude = lib.doJailbreak (self.callHackage "relude" "1.1.0.0" {});
     };
 # https://github.com/kowainik/stan/issues/423

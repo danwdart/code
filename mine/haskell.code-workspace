@@ -17,6 +17,10 @@
 			"path": "haskell/compositions"
 		},
 		{
+			"name": "demoshop",
+			"path": "haskell/demoshop"
+		},
+		{
 			"name": "dubloons",
 			"path": "haskell/dubloons"
 		},

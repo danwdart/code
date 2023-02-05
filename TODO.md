@@ -1,30 +1,3 @@
-resource pattern
-profunctor resource
-efi haskell: haskell that can statically link
-more libraries
-cpp to c, cpp to haskell?
-other... interpreted languages...
-to wasm (via llvm? or js)
-
-Factory pattern haskell
-Hanswers blog iso vs endo
-Data.Fixed
-Control.Newtype
-Arp host bridged network for multi internal sites
-Email server
-Bifunctor arrow
-Arrow based program
-Stddebug
-Network
-Irc bot
-Refresh dom
-Arp add vms to lan
-Docoverage
-Nix build derivation for vm
-Own unliftio instances
-Strictkill graphics
-Postbuild minify hs look in release.nix
-Auto graph or csv or freq ohsol
 Standalone to node
 Ab approve update mode
 
