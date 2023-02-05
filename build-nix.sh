@@ -10,7 +10,7 @@ buildDefault() {
 }
 
 pushShell() {
-    nix-store -qR --include-outputs $(nix-instantiate shell.nix --add-root result-shell --indirect) | cachix push websites
+    nix-store -qR --include-outputs $(nix-instantiate shell.nix --add-root result-shell --indirect) | cachix push dandart
 }
 
 buildShell() {
@@ -98,12 +98,12 @@ do
         if [[ -f shell.nix ]]
         then
             echo "$PREFIX Building shell.nix..."
-            buildShell 2>&1 | sed "s/^/$PREFIX_SED /g"
+            buildShell $BASE 2>&1 | sed "s/^/$PREFIX_SED /g"
             echo "$PREFIX Building default.nix..."
-            buildDefault 2>&1 | sed "s/^/$PREFIX_SED /g"
+            buildDefault $BASE 2>&1 | sed "s/^/$PREFIX_SED /g"
         else
             echo "$PREFIX No shell.nix detected, building default.nix"
-            buildDefault 2>&1 | sed "s/^/$PREFIX_SED /g"
+            buildDefault $BASE 2>&1 | sed "s/^/$PREFIX_SED /g"
         fi
     done
     cd $CODEDIR
