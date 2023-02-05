@@ -5,7 +5,7 @@ set -euo pipefail
 trap pwd ERR
 
 buildDefault() {
-    nix-build # | cachix push websites
+    nix-build # | cachix push dandart
     nix-shell shell.nix --run "cabal new-build all"
 }
 
@@ -14,7 +14,7 @@ pushShell() {
 }
 
 buildShell() {
-    nix-build shell.nix -o result-shell #  | cachix push websites
+    nix-build shell.nix -o result-shell #  | cachix push dandart
     pushShell &
 }
 

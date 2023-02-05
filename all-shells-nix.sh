@@ -7,11 +7,11 @@ trap pwd ERR
 
 pushShell() {
     # This gives a warning about --add-root but we already added the root above.
-    nix-store -qR --include-outputs $(nix-instantiate shell.nix) | cachix push websites
+    nix-store -qR --include-outputs $(nix-instantiate shell.nix) | cachix push dandart
 }
 
 buildShell() {
-    nix-build shell.nix -o result-shell #  | cachix push websites
+    nix-build shell.nix -o result-shell #  | cachix push dandart
     pushShell &
 }
 

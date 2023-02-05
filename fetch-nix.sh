@@ -5,11 +5,11 @@ set -euo pipefail
 trap pwd ERR
 
 pushShell() {
-    nix-store -qR --include-outputs $(nix-instantiate $1.nix --add-root result-$1 --indirect) | cachix push websites
+    nix-store -qR --include-outputs $(nix-instantiate $1.nix --add-root result-$1 --indirect) | cachix push dandart
 }
 
 buildShellFile() {
-    nix-build $1.nix -o result-$1 #  | cachix push websites
+    nix-build $1.nix -o result-$1 #  | cachix push dandart
     pushShell $1 &
 }
 
