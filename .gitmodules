@@ -1,63 +1,63 @@
 # Commissions
 
-[submodule "commissions/foodsurvey"]
-	path = commissions/foodsurvey
+[submodule "work/foodsurvey"]
+	path = work/foodsurvey
 	url = git@github.com:danwdart/foodsurvey.git
 	branch = master
-[submodule "commissions/sysmon"]
-	path = commissions/sysmon
+[submodule "work/sysmon"]
+	path = work/sysmon
 	url = git@github.com:danwdart/sysmon.git
 	branch = master
-[submodule "commissions/todoapp"]
-	path = commissions/todoapp
+[submodule "work/todoapp"]
+	path = work/todoapp
 	url = git@github.com:danwdart/todoapp.git
 	branch = master
-[submodule "commissions/passport-oauth-example"]
-	path = commissions/passport-oauth-example
+[submodule "work/passport-oauth-example"]
+	path = work/passport-oauth-example
 	url = git@github.com:danwdart/passport-oauth-example.git
 	branch = master
-[submodule "commissions/Dan-cockatiel123"]
-	path = commissions/Dan-cockatiel123
+[submodule "work/Dan-cockatiel123"]
+	path = work/Dan-cockatiel123
 	url = git@github.com:danwdart/Dan-cockatiel123.git
 	branch = master
-[submodule "commissions/btreesols"]
-	path = commissions/btreesols
+[submodule "work/btreesols"]
+	path = work/btreesols
 	url = git@github.com:danwdart/btreesols.git
 	branch = master
-[submodule "commissions/vehicle-hire"]
-	path = commissions/vehicle-hire
+[submodule "work/vehicle-hire"]
+	path = work/vehicle-hire
 	url = git@github.com:danwdart/vehicle-hire.git
 	branch = master
-[submodule "commissions/futuretest"]
-	path = commissions/futuretest
+[submodule "work/futuretest"]
+	path = work/futuretest
 	url = git@github.com:danwdart/futuretest.git
 	branch = master
-[submodule "commissions/coding-test-php"]
-	path = commissions/coding-test-php
+[submodule "work/coding-test-php"]
+	path = work/coding-test-php
 	url = git@github.com:danwdart/coding-test-php.git
-[submodule "commissions/coding-test-angular"]
-	path = commissions/coding-test-angular
+[submodule "work/coding-test-angular"]
+	path = work/coding-test-angular
 	url = git@github.com:danwdart/coding-test-angular.git
-[submodule "commissions/grypp-coding-test"]
-	path = commissions/grypp-coding-test
+[submodule "work/grypp-coding-test"]
+	path = work/grypp-coding-test
 	url = git@github.com:danwdart/grypp-coding-test.git
-[submodule "commissions/if-frontend-challenge"]
-	path = commissions/if-frontend-challenge
+[submodule "work/if-frontend-challenge"]
+	path = work/if-frontend-challenge
 	url = git@github.com:danwdart/if-frontend-challenge.git
-[submodule "commissions/engage-test"]
-	path = commissions/engage-test
+[submodule "work/engage-test"]
+	path = work/engage-test
 	url = git@github.com:danwdart/engage-test.git
-[submodule "commissions/4cplatform-php-coding-test"]
-	path = commissions/4cplatform-php-coding-test
+[submodule "work/4cplatform-php-coding-test"]
+	path = work/4cplatform-php-coding-test
 	url = git@github.com:danwdart/4cplatform-php-coding-test.git
-[submodule "commissions/coding-test-convertize"]
-	path = commissions/coding-test-convertize
+[submodule "work/coding-test-convertize"]
+	path = work/coding-test-convertize
 	url = git@github.com:danwdart/coding-test-convertize.git
-[submodule "commissions/onbuy-test"]
-	path = commissions/onbuy-test
+[submodule "work/onbuy-test"]
+	path = work/onbuy-test
 	url = git@github.com:danwdart/onbuy-test.git
-[submodule "commissions/rawnet-solutions"]
-	path = commissions/rawnet-solutions
+[submodule "work/rawnet-solutions"]
+	path = work/rawnet-solutions
 	url = git@github.com:danwdart/rawnet-solutions.git
 
 # Mine
@@ -461,3 +461,33 @@
 [submodule "mine/nix/haskell-tools"]
 	path = mine/nix/haskell-tools
 	url = git@github.com:danwdart/haskell-tools.git
+[submodule "work/equals"]
+	path = work/equals
+	url = git@github.com:danwdart/equals.git
+[submodule "work/roqqett"]
+	path = work/roqqett
+	url = git@github.com:danwdart/roqqett.git
+[submodule "other/CloudFail"]
+	path = other/CloudFail
+	url = git@github.com:m0rtem/CloudFail.git
+[submodule "other/ged2dot"]
+	path = other/ged2dot
+	url = git@github.com:vmiklos/ged2dot.git
+[submodule "other/leapcast"]
+	path = other/leapcast
+	url = https://github.com/dz0ny/leapcast.git
+[submodule "other/sandsifter"]
+	path = other/sandsifter
+	url = git@github.com:xoreaxeaxeax/sandsifter.git
+[submodule "other/sdrangel-docker"]
+	path = other/sdrangel-docker
+	url = git@github.com:f4exb/sdrangel-docker.git
+[submodule "other/srm-compressor"]
+	path = other/srm-compressor
+	url = git@github.com:Danixu/srm-compressor.git
+[submodule "contrib/hs-digits"]
+	path = contrib/hs-digits
+	url = git@github.com:danwdart/hs-digits.git
+[submodule "contrib/digits"]
+	path = contrib/digits
+	url = git@github.com:danwdart/digits.git

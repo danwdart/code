@@ -67,6 +67,9 @@
 		{
 			"name": "code",
 			"path": ".."
+		},
+		{
+			"path": "../contrib/hs-digits"
 		}
 	],
 	"settings": {
