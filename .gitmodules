@@ -85,10 +85,6 @@
 	path = mine/docker/sanitos
 	url = git@github.com:danwdart/sanitos.git
 	branch = master
-[submodule "mine/empty/danos64"]
-	path = mine/empty/danos64
-	url = git@github.com:danwdart/danos64.git
-	branch = master
 [submodule "mine/empty/nostalgia"]
 	path = mine/empty/nostalgia
 	url = git@github.com:danwdart/nostalgia.git
@@ -491,3 +487,6 @@
 [submodule "contrib/digits"]
 	path = contrib/digits
 	url = git@github.com:danwdart/digits.git
+[submodule "mine/haskell/ntfe"]
+	path = mine/haskell/ntfe
+	url = git@github.com:danwdart/ntfe.git
