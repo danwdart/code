@@ -491,3 +491,6 @@
 [submodule "contrib/digits"]
 	path = contrib/digits
 	url = git@github.com:danwdart/digits.git
+[submodule "mine/haskell/ntfe"]
+	path = mine/haskell/ntfe
+	url = git@github.com:danwdart/ntfe.git
