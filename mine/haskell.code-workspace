@@ -5,6 +5,10 @@
 			"path": "haskell/4letters"
 		},
 		{
+			"name": "archery",
+			"path": "haskell/archery"
+		},
+		{
 			"name": "chatter",
 			"path": "haskell/chatter"
 		},
@@ -65,6 +69,7 @@
 			"path": ".."
 		},
 		{
+			"name": "hs-digits",
 			"path": "../contrib/hs-digits"
 		}
 	],
