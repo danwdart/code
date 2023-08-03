@@ -52,7 +52,8 @@ do
         grep -v ghcjs | \
         grep -v dist-newstyle | \
         grep -v tumblr-api | \
-        grep -v reflex-platform
+        grep -v reflex-platform | \
+        grep -v js-backend
         # grep -v tumblr-editor | \
         # grep -v hs-webdriver | \
         )
