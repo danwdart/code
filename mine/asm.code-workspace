@@ -2,7 +2,7 @@
 	"folders": [
 		{
 			"name": "danos",
-			"path": "asm/danos"
+			"path": "multi/danos"
 		},
 		{
 			"name": "asm",
