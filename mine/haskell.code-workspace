@@ -33,16 +33,16 @@
 			"path": "haskell/funky-birthdays"
 		},
 		{
+			"name": "hs-openfaas",
+			"path": "haskell/hs-openfaas"
+		},
+		{
 			"name": "hs-stdlib",
 			"path": "haskell/hs-stdlib"
 		},
 		{
 			"name": "jobfinder",
 			"path": "haskell/jobfinder"
-		},
-		{
-			"name": "ntfe",
-			"path": "haskell/ntfe"
 		},
 		{
 			"name": "websites",
