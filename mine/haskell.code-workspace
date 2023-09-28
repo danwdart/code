@@ -71,6 +71,9 @@
 		{
 			"name": "hs-digits",
 			"path": "../contrib/hs-digits"
+		},
+		{
+			"path": "../contrib/humblr"
 		}
 	],
 	"settings": {
