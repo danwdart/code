@@ -487,9 +487,6 @@
 [submodule "contrib/digits"]
 	path = contrib/digits
 	url = git@github.com:danwdart/digits.git
-[submodule "mine/haskell/ntfe"]
-	path = mine/haskell/ntfe
-	url = git@github.com:danwdart/ntfe.git
 [submodule "mine/haskell/archery"]
 	path = mine/haskell/archery
 	url = git@github.com:danwdart/archery.git
