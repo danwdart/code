@@ -3,7 +3,7 @@ set -e
 CODEDIR=$PWD/mine
 cd $CODEDIR
 echo Finding dotenvrc projects...
-for FILE in $(find $CODEDIR -name .envrc)
+for FILE in $(find $CODEDIR -name .envrc | grep -v dist-newstyle)
 do
     echo $FILE
     DIRLOC=$(dirname $FILE)

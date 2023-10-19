@@ -15,7 +15,7 @@ pushShell() {
 
 buildShell() {
     nix-build shell.nix -o result-shell #  | cachix push dandart
-    pushShell &
+    # pushShell &
 }
 
 help() {

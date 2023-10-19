@@ -1,7 +1,7 @@
 #!/usr/bin/env nix-shell
-#! nix-shell -p haskellPackages.stylish-haskell haskellPackages.hlint haskellPackages.apply-refact parallel -i bash
-set -e
-mkdir ~/.parallel || echo ".parallel exists"
+#! nix-shell -p haskell.packages.ghc94.stylish-haskell haskell.packages.ghc94.hlint haskell.packages.ghc94.apply-refact parallel -i bash
+set -euo pipefail
+mkdir -p ~/.parallel
 touch ~/.parallel/will-cite
 # echo "will cite" | parallel --citation
 INITDIR=~/code
