@@ -484,9 +484,6 @@
 [submodule "contrib/hs-digits"]
 	path = contrib/hs-digits
 	url = git@github.com:danwdart/hs-digits.git
-[submodule "contrib/digits"]
-	path = contrib/digits
-	url = git@github.com:danwdart/digits.git
 [submodule "mine/haskell/archery"]
 	path = mine/haskell/archery
 	url = git@github.com:danwdart/archery.git
