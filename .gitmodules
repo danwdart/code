@@ -490,3 +490,9 @@
 [submodule "mine/haskell/hs-openfaas"]
 	path = mine/haskell/hs-openfaas
 	url = git@github.com:JolHarg/hs-openfaas.git
+[submodule "mine/haskell/kasmveh"]
+	path = mine/haskell/kasmveh
+	url = git@github.com:danwdart/kasmveh.git
+[submodule "mine/haskell/openfaas-examples"]
+	path = mine/haskell/openfaas-examples
+	url = git@github.com:JolHarg/hs-openfaas-examples
