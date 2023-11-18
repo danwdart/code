@@ -42,7 +42,7 @@ do
     # jobfinder, websites
     PROJECTS=$(find $CODEDIR -name default.nix | \
         grep -v jobfinder | \
-        grep -v family | \
+        # grep -v family | \
         # fatal: Could not parse object 'cff413cfad99d6a2c6594a286b9d7446fc357ff3'.
         # grep -v consolefrp | \
         # grep -v static | \
