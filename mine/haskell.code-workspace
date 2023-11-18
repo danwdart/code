@@ -9,6 +9,10 @@
 			"path": "haskell/archery"
 		},
 		{
+			"name": "bots",
+			"path": "haskell/bots"
+		},
+		{
 			"name": "chatter",
 			"path": "haskell/chatter"
 		},
@@ -37,12 +41,20 @@
 			"path": "haskell/hs-openfaas"
 		},
 		{
+			"name": "openfaas-examples",
+			"path": "haskell/openfaas-examples"
+		},
+		{
 			"name": "hs-stdlib",
 			"path": "haskell/hs-stdlib"
 		},
 		{
 			"name": "jobfinder",
 			"path": "haskell/jobfinder"
+		},
+		{
+			"name": "kasmveh",
+			"path": "haskell/kasmveh"
 		},
 		{
 			"name": "websites",
@@ -73,6 +85,7 @@
 			"path": "../contrib/hs-digits"
 		},
 		{
+			"name": "humblr",
 			"path": "../contrib/humblr"
 		}
 	],
