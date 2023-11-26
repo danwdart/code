@@ -498,4 +498,4 @@
 	url = git@github.com:JolHarg/hs-openfaas-examples
 [submodule "mine/haskell/bots"]
 	path = mine/haskell/bots
-	url = git@github.com:JolHarg/bots.git
+	url = git@github.com:JolHarg/hs-bots.git
