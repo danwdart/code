@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#! nix-shell -p haskell.packages.ghc94.stylish-haskell haskell.packages.ghc94.hlint haskell.packages.ghc94.apply-refact parallel -i bash
+#! nix-shell -p haskell.packages.ghc96.stylish-haskell haskell.packages.ghc96.hlint haskell.packages.ghc96.apply-refact haskell.packages.ghc96.cabal-fmt parallel -i bash
 set -euo pipefail
 mkdir -p ~/.parallel
 touch ~/.parallel/will-cite
@@ -23,6 +23,8 @@ do
         parallel --halt never hlint --refactor --refactor-options=-i ::: $FILES || echo Failure running hlint
         echo Running stylish-haskell...
         parallel --halt never stylish-haskell -i ::: $FILES || echo Failure running stylish-haskell
+        echo Running cabal-fmt...
+        cabal-fmt -i *.cabal
         echo Finished updating $BASE
         cd $INITDIR
     done
