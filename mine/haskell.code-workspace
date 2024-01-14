@@ -87,6 +87,9 @@
 		{
 			"name": "humblr",
 			"path": "../contrib/humblr"
+		},
+		{
+			"path": "md/danwdart"
 		}
 	],
 	"settings": {
