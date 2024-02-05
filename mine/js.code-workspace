@@ -1,0 +1,316 @@
+{
+	"folders": [
+		{
+			"name": "anglo",
+			"path": "js/anglo"
+		},
+		{
+			"name": "arsebeatfish",
+			"path": "js/arsebeatfish"
+		},
+		{
+			"name": "audioplayer",
+			"path": "multi/projects/js/audioplayer"
+		},
+		{
+			"name": "autoload",
+			"path": "multi/projects/js/autoload"
+		},
+		{
+			"name": "autosnope",
+			"path": "js/autosnope"
+		},
+		{
+			"name": "avia",
+			"path": "js/avia"
+		},
+		{
+			"name": "babel-still-needed",
+			"path": "multi/projects/js/babel-still-needed"
+		},
+		{
+			"name": "bev",
+			"path": "js/bev"
+		},
+		{
+			"name": "boorusearch",
+			"path": "multi/projects/js/boorusearch"
+		},
+		{
+			"name": "dartcomm",
+			"path": "js/dartcomm"
+		},
+		{
+			"name": "decl",
+			"path": "multi/projects/js/decl"
+		},
+		{
+			"name": "drpl",
+			"path": "js/drpl"
+		},
+		{
+			"name": "electron",
+			"path": "multi/projects/js/electron"
+		},
+		{
+			"name": "encryption",
+			"path": "multi/projects/js/encryption"
+		},
+		{
+			"name": "equationsounds",
+			"path": "js/equationsounds"
+		},
+		{
+			"name": "es6",
+			"path": "multi/projects/js/es6"
+		},
+		{
+			"name": "events",
+			"path": "multi/projects/js/events"
+		},
+		{
+			"name": "fef",
+			"path": "multi/projects/js/fef"
+		},
+		{
+			"name": "fft",
+			"path": "multi/projects/js/fft"
+		},
+		{
+			"name": "flow",
+			"path": "multi/projects/js/flow"
+		},
+		{
+			"name": "fps",
+			"path": "js/fps"
+		},
+		{
+			"name": "freespeech",
+			"path": "js/freespeech"
+		},
+		{
+			"name": "fsm",
+			"path": "js/fsm"
+		},
+		{
+			"name": "functional",
+			"path": "multi/projects/js/functional"
+		},
+		{
+			"name": "fuse",
+			"path": "multi/projects/js/fuse"
+		},
+		{
+			"name": "gamenu",
+			"path": "multi/projects/js/gamenu"
+		},
+		{
+			"name": "glslRunner",
+			"path": "multi/projects/js/glslRunner"
+		},
+		{
+			"name": "gravity",
+			"path": "js/gravity"
+		},
+		{
+			"name": "haber",
+			"path": "js/haber"
+		},
+		{
+			"name": "heartish",
+			"path": "js/heartish"
+		},
+		{
+			"name": "imvu",
+			"path": "multi/projects/js/imvu"
+		},
+		{
+			"name": "inodify",
+			"path": "multi/projects/js/inodify"
+		},
+		{
+			"name": "jammin",
+			"path": "js/jammin"
+		},
+		{
+			"name": "js86",
+			"path": "js/js86"
+		},
+		{
+			"name": "jsarm",
+			"path": "js/jsarm"
+		},
+		{
+			"name": "kallistarvin",
+			"path": "js/kallistarvin"
+		},
+		{
+			"name": "learn",
+			"path": "multi/projects/js/learn"
+		},
+		{
+			"name": "markov",
+			"path": "multi/projects/js/markov"
+		},
+		{
+			"name": "maths",
+			"path": "multi/projects/js/maths"
+		},
+		{
+			"name": "movesic",
+			"path": "js/movesic"
+		},
+		{
+			"name": "myact",
+			"path": "multi/projects/js/myact"
+		},
+		{
+			"name": "net",
+			"path": "multi/projects/js/net"
+		},
+		{
+			"name": "niceorm",
+			"path": "multi/projects/js/niceorm"
+		},
+		{
+			"name": "nw",
+			"path": "multi/projects/js/nw"
+		},
+		{
+			"name": "observers",
+			"path": "multi/projects/js/observers"
+		},
+		{
+			"name": "oeis",
+			"path": "js/oeis"
+		},
+		{
+			"name": "omegcli",
+			"path": "js/omegcli"
+		},
+		{
+			"name": "oop",
+			"path": "multi/projects/js/oop"
+		},
+		{
+			"name": "patchdeck",
+			"path": "js/patchdeck"
+		},
+		{
+			"name": "pcomm",
+			"path": "js/pcomm"
+		},
+		{
+			"name": "polypropene",
+			"path": "js/polypropene"
+		},
+		{
+			"name": "pos",
+			"path": "multi/projects/js/pos"
+		},
+		{
+			"name": "proj",
+			"path": "multi/projects/js/proj"
+		},
+		{
+			"name": "promise",
+			"path": "multi/projects/js/promise"
+		},
+		{
+			"name": "rawwebgltutorial",
+			"path": "multi/projects/js/rawwebgltutorial"
+		},
+		{
+			"name": "reactstuff",
+			"path": "multi/projects/js/reactstuff"
+		},
+		{
+			"name": "retroradio",
+			"path": "js/retroradio"
+		},
+		{
+			"name": "rolling",
+			"path": "multi/projects/js/rolling"
+		},
+		{
+			"name": "scalr-phonegap",
+			"path": "js/scalr-phonegap"
+		},
+		{
+			"name": "secant",
+			"path": "js/secant"
+		},
+		{
+			"name": "serverless-prs-github",
+			"path": "js/serverless-prs-github"
+		},
+		{
+			"name": "slsdemo",
+			"path": "multi/projects/js/slsdemo"
+		},
+		{
+			"name": "speech",
+			"path": "multi/projects/js/speech"
+		},
+		{
+			"name": "three",
+			"path": "multi/projects/js/three"
+		},
+		{
+			"name": "ts",
+			"path": "multi/projects/js/ts"
+		},
+		{
+			"name": "tsx",
+			"path": "multi/projects/js/tsx"
+		},
+		{
+			"name": "unsorted",
+			"path": "multi/projects/js/unsorted"
+		},
+		{
+			"name": "vidsort",
+			"path": "js/vidsort"
+		},
+		{
+			"name": "vinski2",
+			"path": "js/vinski2"
+		},
+		{
+			"name": "VypZZ",
+			"path": "js/VypZZ"
+		},
+		{
+			"name": "wasm",
+			"path": "multi/projects/js/wasm"
+		},
+		{
+			"name": "webcomponents",
+			"path": "multi/projects/js/webcomponents"
+		},
+		{
+			"name": "webextensions",
+			"path": "multi/projects/js/webextensions"
+		},
+		{
+			"name": "webgl",
+			"path": "multi/projects/js/webgl"
+		},
+		{
+			"name": "webpack",
+			"path": "multi/projects/js/webpack"
+		},
+		{
+			"name": "webrtc",
+			"path": "multi/projects/js/webrtc"
+		},
+		{
+			"name": "webusb",
+			"path": "multi/projects/js/webusb"
+		},
+		{
+			"name": "zepper",
+			"path": "js/zepper"
+		}
+	]
+}
