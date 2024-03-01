@@ -499,3 +499,6 @@
 [submodule "mine/haskell/bots"]
 	path = mine/haskell/bots
 	url = git@github.com:JolHarg/hs-bots.git
+[submodule "mine/md/danwdart"]
+	path = mine/md/danwdart
+	url = git@github.com:danwdart/danwdart.git
