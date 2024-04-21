@@ -54,7 +54,6 @@ do
         grep -v external | \
         grep -v ghcjs | \
         grep -v dist-newstyle | \
-        grep -v tumblr-api | \
         grep -v reflex-platform | \
         grep -v js-backend | \
         grep -v cards-ui
