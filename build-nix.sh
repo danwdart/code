@@ -5,8 +5,8 @@ set -euo pipefail
 trap pwd ERR
 
 buildDefault() {
-    nix-build # | cachix push dandart
-    nix-shell shell.nix --run "cabal new-build all"
+    nix-shell shell.nix --run "cabal new-build all -j12"
+    nix-build -j12  # | cachix push dandart
 }
 
 pushShell() {
@@ -14,7 +14,7 @@ pushShell() {
 }
 
 buildShell() {
-    nix-build shell.nix -o result-shell #  | cachix push dandart
+    nix-build shell.nix -o result-shell -j12 #  | cachix push dandart
     # pushShell &
 }
 
@@ -46,6 +46,7 @@ do
         # fatal: Could not parse object 'cff413cfad99d6a2c6594a286b9d7446fc357ff3'.
         # grep -v consolefrp | \
         # grep -v static | \
+        grep -v misostuff | \
         grep -v ffijs | \
         grep -v haskell-tools | \
         grep -v external | \
@@ -53,7 +54,8 @@ do
         grep -v dist-newstyle | \
         grep -v tumblr-api | \
         grep -v reflex-platform | \
-        grep -v js-backend
+        grep -v js-backend | \
+        grep -v cards-ui
         # grep -v tumblr-editor | \
         # grep -v hs-webdriver | \
         )
