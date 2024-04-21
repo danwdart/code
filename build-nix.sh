@@ -48,6 +48,7 @@ do
         # grep -v consolefrp | \
         # grep -v static | \
         grep -v misostuff | \
+        grep -v kasmveh | \
         grep -v ffijs | \
         grep -v haskell-tools | \
         grep -v external | \
