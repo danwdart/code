@@ -15,7 +15,7 @@ pushShell() {
 
 buildShell() {
     nix-build shell.nix -o result-shell -j12 #  | cachix push dandart
-    # pushShell &
+    pushShell &
 }
 
 help() {
@@ -56,6 +56,7 @@ do
         grep -v dist-newstyle | \
         grep -v reflex-platform | \
         grep -v js-backend | \
+        grep -v wasm-backend | \
         grep -v cards-ui
         # grep -v tumblr-editor | \
         # grep -v hs-webdriver | \
