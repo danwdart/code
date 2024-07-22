@@ -19,7 +19,7 @@ do
     fi
     rm package-lock.json || echo "nothing to remove"
     rm yarn.lock || echo "nothing to remove"
-    ncu -ut greatest || echo "Can't get the latest versions. Never mind."
+    ncu -ut latest || echo "Can't get the latest versions. Never mind."
     npm install --include=dev @snyk/protect || echo "Maybe we can't install snyk."
     npx @snyk/cli-protect-upgrade || echo "Couldn't upgrade the snyk stuff."
     npm install --package-lock-only || echo "couldn't create ourselves a package-lock.json, eh."
