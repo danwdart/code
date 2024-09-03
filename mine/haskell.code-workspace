@@ -90,6 +90,9 @@
 		},
 		{
 			"path": "md/danwdart"
+		},
+		{
+			"path": "../contrib/call-stack"
 		}
 	],
 	"settings": {

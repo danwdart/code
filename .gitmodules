@@ -502,3 +502,6 @@
 [submodule "mine/md/danwdart"]
 	path = mine/md/danwdart
 	url = git@github.com:danwdart/danwdart.git
+[submodule "contrib/call-stack"]
+	path = contrib/call-stack
+	url = git@github.com:danwdart/call-stack.git
