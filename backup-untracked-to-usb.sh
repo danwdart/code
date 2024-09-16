@@ -66,12 +66,22 @@ mkBackup7z() {
 mkBackup7zGpg() {
     [[ -f backup.7z ]] || mkBackup7z
     echo Encrypting backup...
-    gpg -eobackup.7z.gpg -rdan@dandart.co.uk backup.7z
+    gpg -eobackup.7z.gpg -r 0240A2F45637C90C backup.7z
     rm backup.7z
 }
 
+mkGnupg7z() {
+    7z a gnupg.7z ~/.gnupg >> backup.log 2>backup_error.log
+}
+
+mkGnupg7zGpg() {
+    [[ -f gnupg.7z ]] || mkGnupg7z
+    echo Encrypting keys...
+    gpg -cognupg.7z.gpg gnupg.7z && rm gnupg.7z
+}
+
 [[ -f backup.7z.gpg ]] || mkBackup7zGpg
+[[ -f gnupg.7z.gpg ]] || mkGnupg7zGpg
 
-echo "Uploading backup (you may be prompted to enter your rclone configuration password)..."
-
-rclone copy backup.7z.gpg "Google Drive dan at dandart:/" && rm backup.7z.gpg
+rsync -auvP backup.7z.gpg /run/media/dwd/Portable/ && rm backup.7z.gpg
+rsync -auvP gnupg.7z.gpg /run/media/dwd/Portable/ && rm gnupg.7z.gpg
