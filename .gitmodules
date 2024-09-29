@@ -505,3 +505,6 @@
 [submodule "contrib/call-stack"]
 	path = contrib/call-stack
 	url = git@github.com:danwdart/call-stack.git
+[submodule "other/andiodine"]
+	path = other/andiodine
+	url = https://gitlab.com/andiodine/andiodine.git
