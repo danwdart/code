@@ -89,12 +89,19 @@
 			"path": "../contrib/humblr"
 		},
 		{
+			"name": "danwdart",
 			"path": "md/danwdart"
 		},
 		{
+			"name": "jolharg-github",
+			"path": "md/jolharg-github"
+		},
+		{
+			"name": "call-stack",
 			"path": "../contrib/call-stack"
 		},
 		{
+			"name": "andiodine",
 			"path": "../other/andiodine"
 		}
 	],
