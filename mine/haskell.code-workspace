@@ -93,6 +93,9 @@
 		},
 		{
 			"path": "../contrib/call-stack"
+		},
+		{
+			"path": "../other/andiodine"
 		}
 	],
 	"settings": {
