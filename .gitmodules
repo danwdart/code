@@ -508,3 +508,6 @@
 [submodule "other/andiodine"]
 	path = other/andiodine
 	url = https://gitlab.com/andiodine/andiodine.git
+[submodule "mine/md/jolharg-github"]
+	path = mine/md/jolharg-github
+	url = git@github.com:JolHarg/.github.git
