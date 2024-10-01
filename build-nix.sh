@@ -106,8 +106,8 @@ buildDefault() {
 }
 
 pushShell() {
-    # nix-store -qR --include-outputs $(nix-instantiate shell.nix --add-root result-shell --indirect) | grep -v \\.drv | cachix push dandart 2>&1 | sed 's/^/pushShell 1: /'
-    nix-store -qR --include-outputs $(nix-store -qd $(nix-build shell.nix)) | grep -v \\.drv | cachix push dandart 2>&1 | sed 's/^/pushShell 2: /'
+    # nix-store -qR --include-outputs $(nix-instantiate shell.nix --add-root result-shell --indirect) | grep -v \\.drv | cachix push dandart 2>&1 | sed 's/^/pushShell: /'
+    nix-store -qR --include-outputs $(nix-store -qd $(nix-build shell.nix)) | grep -v \\.drv | cachix push dandart 2>&1 | sed 's/^/pushShell: /'
 }
 
 buildShell() {
