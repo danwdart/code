@@ -22,7 +22,7 @@ buildCabal_ghc910() {
         return 0
     fi
 
-    if [[ "$1" == "9.8" ]]
+    if [[ "$1" == "9.10" ]]
     then
         echo "$1: needs to include libudev - however it is that you do that."
         return 0
@@ -45,7 +45,7 @@ buildCabal_ghc910() {
 }
 
 buildCabal_ghc98() {
-    if [[ "$1" == "compositions" || "$1" == "ffi-quickcheck" || "$1" == "cards" || "$1" == "kasmveh" ||"$1" == "maths" || "$1" == "peoplemanager" || "$1" == "reflex-headless" || "$1" == "projecteuler" || "$1" == "consolefrp" || "$1" == "tumblr-editor" || "$1" == "monopoly" || "$1" == "games" || "$1" == "whatcoffee" || "$1" == "hs-openfaas" || "$1" == "openfaas-examples" || "$1" == "4letters" || "$1" == "bots" || "$1" == "websites" || "$1" == "dubloons" || "$1" == "chatter" || "$1" == "2021" || "$1" == "onlybase" || "$1" == "onlycore" ]]
+    if [[ "$1" == "9.10" || "$1" == "compositions" || "$1" == "ffi-quickcheck" || "$1" == "cards" || "$1" == "kasmveh" ||"$1" == "maths" || "$1" == "peoplemanager" || "$1" == "reflex-headless" || "$1" == "projecteuler" || "$1" == "consolefrp" || "$1" == "tumblr-editor" || "$1" == "monopoly" || "$1" == "games" || "$1" == "whatcoffee" || "$1" == "hs-openfaas" || "$1" == "openfaas-examples" || "$1" == "4letters" || "$1" == "bots" || "$1" == "websites" || "$1" == "dubloons" || "$1" == "chatter" || "$1" == "2021" || "$1" == "onlybase" || "$1" == "onlycore" ]]
     then
         echo "$1: ghc requirement too new to do cabal build with ghc98."
         return 0
@@ -60,12 +60,6 @@ buildCabal_ghc98() {
     if [[ "$1" == "coinflicker" ]]
     then
         echo "$1: needs to include libGL - however it is that you do that."
-        return 0
-    fi
-
-    if [[ "$1" == "9.8" ]]
-    then
-        echo "$1: needs to include libudev - however it is that you do that."
         return 0
     fi
 
