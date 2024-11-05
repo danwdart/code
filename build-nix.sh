@@ -45,7 +45,7 @@ buildCabal_ghc910() {
 }
 
 buildCabal_ghc98() {
-    if [[ "$1" == "9.10" || "$1" == "compositions" || "$1" == "ffi-quickcheck" || "$1" == "cards" || "$1" == "kasmveh" ||"$1" == "maths" || "$1" == "peoplemanager" || "$1" == "reflex-headless" || "$1" == "projecteuler" || "$1" == "consolefrp" || "$1" == "tumblr-editor" || "$1" == "monopoly" || "$1" == "games" || "$1" == "whatcoffee" || "$1" == "hs-openfaas" || "$1" == "openfaas-examples" || "$1" == "4letters" || "$1" == "bots" || "$1" == "websites" || "$1" == "dubloons" || "$1" == "chatter" || "$1" == "2021" || "$1" == "onlybase" || "$1" == "onlycore" ]]
+    if [[ "$1" == "9.10" || "$1" == "compositions" || "$1" == "ffi" || "$1" == "ffi-quickcheck" || "$1" == "cards" || "$1" == "kasmveh" ||"$1" == "maths" || "$1" == "peoplemanager" || "$1" == "reflex-headless" || "$1" == "projecteuler" || "$1" == "consolefrp" || "$1" == "tumblr-editor" || "$1" == "monopoly" || "$1" == "games" || "$1" == "whatcoffee" || "$1" == "hs-openfaas" || "$1" == "openfaas-examples" || "$1" == "4letters" || "$1" == "bots" || "$1" == "websites" || "$1" == "dubloons" || "$1" == "chatter" || "$1" == "2021" || "$1" == "onlybase" || "$1" == "onlycore" ]]
     then
         echo "$1: ghc requirement too new to do cabal build with ghc98."
         return 0
@@ -116,8 +116,8 @@ help() {
 
 nix-channel --update
 # these don't seem to really do anything...
-# nix-store -qR --include-outputs $(nix-instantiate -E "with import <nixpkgs> {}; (haskell.packages.ghc910.ghcWithPackages (ghc: with ghc; [ cabal-install ]))" --add-root cabalroot --indirect) | cachix push dandart 2>&1 | sed 's/^/pushing cabal: /'
-nix-store -qR --include-outputs $(nix-store -qd $(nix-build -E "with import <nixpkgs> {}; (haskell.packages.ghc910.ghcWithPackages (ghc: with ghc; [ cabal-install ]))")) | grep -v '\.drv$' | cachix push dandart 2>&1 | sed 's/^/pushing cabal: /'
+nix-store -qR --include-outputs $(nix-instantiate -E "with import <nixpkgs> {}; (haskell.packages.ghc910.ghcWithPackages (ghc: with ghc; [ cabal-install ]))" --add-root cabalroot --indirect) | cachix push dandart 2>&1 | sed 's/^/pushing cabal: /'
+# nix-store -qR --include-outputs $(nix-store -qd $(nix-build -E "with import <nixpkgs> {}; (haskell.packages.ghc910.ghcWithPackages (ghc: with ghc; [ cabal-install ]))")) | grep -v '\.drv$' | cachix push dandart 2>&1 | sed 's/^/pushing cabal: /'
 # nix-build -E "with import <nixpkgs> {}; (haskell.packages.ghc910.ghcWithPackages (ghc: with ghc; [ cabal-install ]))" | cachix push dandart 2>&1 | sed 's/^/pushing cabal: /'
 nix-shell -j auto -p "haskell.packages.ghc910.ghcWithPackages (ghc: with ghc; [ cabal-install ])" --run "cabal new-update" 2>&1 | sed 's/^/cabal new-update: /'
 

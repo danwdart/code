@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#! nix-shell -p haskell.packages.ghc910.stylish-haskell haskell.packages.ghc910.hlint haskell.packages.ghc910.apply-refact haskell.packages.ghc910.cabal-fmt parallel -i bash
+#! nix-shell -p haskell.packages.ghc98.stylish-haskell haskell.packages.ghc98.hlint haskell.packages.ghc98.apply-refact haskell.packages.ghc910.cabal-fmt parallel -i bash
 set -euo pipefail
 mkdir -p ~/.parallel
 touch ~/.parallel/will-cite
