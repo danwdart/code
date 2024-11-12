@@ -40,62 +40,26 @@ buildCabal_ghc910() {
         return 0
     fi
 
-    nix-shell -j auto -p "haskell.packages.ghc910.ghcWithPackages (ghc: with ghc; [ cabal-install ])" --run "cabal new-build" 2>&1 | sed 's/^/GHC 9.10: /'
+    nix-shell -j auto -p "haskell.packages.ghc910.ghcWithPackages (ghc: with ghc; [ cabal-install ])" --run "cabal clean && cabal new-build" 2>&1 | sed 's/^/GHC 9.10: /'
     # nix-shell -p haskell.compilers.ghc910 haskell.packages.ghc910.cabal-install
 }
 
-buildCabal_ghc98() {
-    if [[ "$1" == "9.10" || "$1" == "compositions" || "$1" == "ffi" || "$1" == "ffi-quickcheck" || "$1" == "cards" || "$1" == "kasmveh" ||"$1" == "maths" || "$1" == "peoplemanager" || "$1" == "reflex-headless" || "$1" == "projecteuler" || "$1" == "consolefrp" || "$1" == "tumblr-editor" || "$1" == "monopoly" || "$1" == "games" || "$1" == "whatcoffee" || "$1" == "hs-openfaas" || "$1" == "openfaas-examples" || "$1" == "4letters" || "$1" == "bots" || "$1" == "websites" || "$1" == "dubloons" || "$1" == "chatter" || "$1" == "2021" || "$1" == "onlybase" || "$1" == "onlycore" ]]
-    then
-        echo "$1: ghc requirement too new to do cabal build with ghc98."
-        return 0
-    fi
-
-    if [[ "$1" == "funky-birthdays" || "$1" == "family" ]]
-    then
-        echo "$1: ghc requirement too old to do cabal build with ghc98."
-        return 0
-    fi
-
-    if [[ "$1" == "coinflicker" ]]
-    then
-        echo "$1: needs to include libGL - however it is that you do that."
-        return 0
-    fi
-
-    if [[ "$1" == "tumblr-api" ]]
-    then
-        echo "$1: fix humblr"
-        return 0
-    fi
-
-    if [[ "$1" == "js-backend" ]]
-    then
-        echo "$1: requires js backend"
-        return 0
-    fi
-
-    nix-shell -j auto -p "haskell.packages.ghc98.ghcWithPackages (ghc: with ghc; [ cabal-install ])" --run "cabal new-build" 2>&1 | sed 's/^/GHC 9.8: /'
-    # nix-shell -p haskell.compilers.ghc98 haskell.packages.ghc98.cabal-install
-}
-
-buildCabal_ghc98_jsbackend() {
-    nix-shell -j auto -p "pkgsCross.pkgsHostBuild.ghcjs.haskell.packages.ghc98.ghcWithPackages (ghc: with ghc; [ cabal-install ])" --run "cabal new-build" 2>&1 | sed 's/^/GHC 9.8 JS Backend: /'
-}
-
 buildCabal_ghc910_jsbackend() {
-    nix-shell -j auto -p "pkgsCross.pkgsHostBuild.ghcjs.haskell.packages.ghc910.ghcWithPackages (ghc: with ghc; [ cabal-install ])" --run "cabal new-build" 2>&1 | sed 's/^/GHC 9.10 JS Backend: /'
+    nix-shell -j auto -p "pkgsCross.pkgsHostBuild.ghcjs.haskell.packages.ghc910.ghcWithPackages (ghc: with ghc; [ cabal-install ])" --run "cabal clean && cabal new-build" 2>&1 | sed 's/^/GHC 9.10 JS Backend: /'
 }
 
 buildCabal() {
     buildCabal_ghc910 $1
-    buildCabal_ghc98 $1
     # buildCabal_ghc910_jsbackend $1
-    # buildCabal_ghc98_jsbackend $1
 }
 
 buildDefault() {
-    nix-shell -j auto shell.nix --run "cabal new-build all -j" 2>&1 | sed 's/^/GHC Default: /'
+    if [[ "$1" == "family" || "$1" == "funky-birthdays" ]]
+    then
+        echo "Skipping cabal default build because cabal is not installed in this version."
+    else
+        nix-shell -j auto shell.nix --run "cabal clean && cabal new-build all -j" 2>&1 | sed 's/^/Cabal in default shell.nix: /'
+    fi
     nix-build -j auto  # | cachix push dandart
 }
 
@@ -142,7 +106,6 @@ do
         grep -v jobfinder | \
         grep -v archery | \
         # grep -v family | \
-        # fatal: Could not parse object 'cff413cfad99d6a2c6594a286b9d7446fc357ff3'.
         # grep -v consolefrp | \
         # grep -v static | \
         grep -v misostuff | \
@@ -155,6 +118,7 @@ do
         grep -v reflex-platform | \
         grep -v wasm-backend | \
         grep -v cards-ui | \
+        grep -v tumblr-api | \
         grep -v yt-sort
         # grep -v tumblr-editor | \
         # grep -v hs-webdriver | \
@@ -199,10 +163,10 @@ do
             echo "$PREFIX Nix Shell: Building shell.nix..."
             buildShell 2>&1 | sed "s/^/$PREFIX_SED: Nix Shell: /g"
             echo "$PREFIX Nix: Building default.nix..."
-            buildDefault 2>&1 | sed "s/^/$PREFIX_SED: Nix: /g"
+            buildDefault $BASE 2>&1 | sed "s/^/$PREFIX_SED: Nix: /g"
         else
             echo "$PREFIX No shell.nix detected, building default.nix"
-            buildDefault 2>&1 | sed "s/^/$PREFIX_SED: Nix: /g"
+            buildDefault $BASE 2>&1 | sed "s/^/$PREFIX_SED: Nix: /g"
         fi
     done
     popd

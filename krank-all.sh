@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#! nix-shell -p krank -i bash
+#! nix-shell -i bash
 
 ORIG=$(pwd)
 CODEDIRS="$PWD/mine" # $PWD/contrib
@@ -28,7 +28,7 @@ do
         echo "$PREFIX Entering $DIRLOC"
         cd $DIRLOC
 
-        krank *.nix
+        nix-shell --run "krank *.nix"
     done
     cd $CODEDIR
     echo "Finished processing Nix projects in $CODEDIR"

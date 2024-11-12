@@ -106,7 +106,6 @@
 		}
 	],
 	"settings": {
-		"nixEnvSelector.suggestion": false,
-		"nixEnvSelector.nixFile": "${workspaceFolder}/default.nix"
+		"nixEnvSelector.suggestion": false
 	}
 }
