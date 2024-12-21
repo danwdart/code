@@ -103,6 +103,9 @@
 		{
 			"name": "andiodine",
 			"path": "../other/andiodine"
+		},
+		{
+			"path": "../contrib/hs-gedcom"
 		}
 	],
 	"settings": {

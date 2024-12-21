@@ -10,12 +10,6 @@ checkCabal() {
 }
 
 buildCabal_ghc910() {
-    if [[ "$1" == "funky-birthdays" || "$1" == "family" ]]
-    then
-        echo "$1: ghc requirement too old to do cabal build with ghc910."
-        return 0
-    fi
-
     if [[ "$1" == "coinflicker" ]]
     then
         echo "$1: needs to include libGL - however it is that you do that."
@@ -54,12 +48,7 @@ buildCabal() {
 }
 
 buildDefault() {
-    if [[ "$1" == "family" || "$1" == "funky-birthdays" ]]
-    then
-        echo "Skipping cabal default build because cabal is not installed in this version."
-    else
-        nix-shell -j auto shell.nix --run "cabal clean && cabal new-build all -j" 2>&1 | sed 's/^/Cabal in default shell.nix: /'
-    fi
+    nix-shell -j auto shell.nix --run "cabal clean && cabal new-build all -j" 2>&1 | sed 's/^/Cabal in default shell.nix: /'
     nix-build -j auto  # | cachix push dandart
 }
 
