@@ -106,6 +106,9 @@
 		},
 		{
 			"path": "../contrib/hs-gedcom"
+		},
+		{
+			"path": "../contrib/ddate"
 		}
 	],
 	"settings": {
