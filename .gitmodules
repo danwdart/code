@@ -496,9 +496,9 @@
 [submodule "mine/haskell/openfaas-examples"]
 	path = mine/haskell/openfaas-examples
 	url = git@github.com:JolHarg/hs-openfaas-examples
-[submodule "mine/haskell/bots"]
-	path = mine/haskell/bots
-	url = git@github.com:JolHarg/hs-bots.git
+[submodule "mine/haskell/discord-webhook"]
+	path = mine/haskell/discord-webhook
+	url = git@github.com:JolHarg/hs-discord-webhook.git
 [submodule "mine/md/danwdart"]
 	path = mine/md/danwdart
 	url = git@github.com:danwdart/danwdart.git
@@ -511,3 +511,6 @@
 [submodule "mine/md/jolharg-github"]
 	path = mine/md/jolharg-github
 	url = git@github.com:JolHarg/.github.git
+[submodule "mine/haskell/granular-io"]
+	path = mine/haskell/granular-io
+	url = git@github.com:danwdart/hs-granular-io.git
