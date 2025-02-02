@@ -9,12 +9,12 @@
 			"path": "haskell/archery"
 		},
 		{
-			"name": "bots",
-			"path": "haskell/bots"
-		},
-		{
 			"name": "chatter",
 			"path": "haskell/chatter"
+		},
+		{
+			"name": "chaosmage",
+			"path": "haskell/chaosmage"
 		},
 		{
 			"name": "coinflicker",
@@ -23,6 +23,10 @@
 		{
 			"name": "compositions",
 			"path": "haskell/compositions"
+		},
+		{
+			"name": "discord-webhook",
+			"path": "haskell/discord-webhook"
 		},
 		{
 			"name": "dubloons",
@@ -35,6 +39,10 @@
 		{
 			"name": "funky-birthdays",
 			"path": "haskell/funky-birthdays"
+		},
+		{
+			"name": "granular-io",
+			"path": "haskell/granular-io"
 		},
 		{
 			"name": "hs-openfaas",
@@ -101,14 +109,16 @@
 			"path": "../contrib/call-stack"
 		},
 		{
-			"name": "andiodine",
-			"path": "../other/andiodine"
-		},
-		{
+			"name": "hs-gedcom",
 			"path": "../contrib/hs-gedcom"
 		},
 		{
+			"name": "ddate",
 			"path": "../contrib/ddate"
+		},
+		{
+			"name": "req",
+			"path": "../contrib/req"
 		}
 	],
 	"settings": {
