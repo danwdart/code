@@ -13,10 +13,6 @@
 			"path": "haskell/chatter"
 		},
 		{
-			"name": "chaosmage",
-			"path": "haskell/chaosmage"
-		},
-		{
 			"name": "coinflicker",
 			"path": "haskell/coinflicker"
 		},
@@ -119,6 +115,9 @@
 		{
 			"name": "req",
 			"path": "../contrib/req"
+		},
+		{
+			"path": "../contrib/nixpkgs"
 		}
 	],
 	"settings": {

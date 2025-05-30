@@ -51,7 +51,7 @@ do
 
         # if [[ "family" == $BASE ]]; then continue; fi
 
-        # if [[ "chatter" == $BASE || "dubloons" == $BASE || "hs-stdlib" == $BASE || "jobfinder" == $BASE || "9.2.2" == $BASE || "peoplemanager" == $BASE || "tumblr-editor" == $BASE ]]; then continue; fi
+        # if [[ "chatio" == $BASE || "dubloons" == $BASE || "hs-stdlib" == $BASE || "jobfinder" == $BASE || "9.2.2" == $BASE || "peoplemanager" == $BASE || "tumblr-editor" == $BASE ]]; then continue; fi
 
         # waiting for https://github.com/NixOS/nixpkgs/issues/197388
         # if [[ "9.4.2" == $BASE || "peoplemanager" == $BASE ]]; then continue; fi

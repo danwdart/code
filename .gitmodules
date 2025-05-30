@@ -514,3 +514,6 @@
 [submodule "mine/haskell/granular-io"]
 	path = mine/haskell/granular-io
 	url = git@github.com:danwdart/hs-granular-io.git
+[submodule "contrib/nixpkgs"]
+	path = contrib/nixpkgs
+	url = git@github.com:danwdart/nixpkgs.git

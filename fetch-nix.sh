@@ -49,7 +49,7 @@ do
         DIRLOC=$(dirname $FILE)
         BASE=$(basename $DIRLOC)
 
-        # if [[ "chatter" == $BASE || "dubloons" == $BASE || "hs-stdlib" == $BASE || "jobfinder" == $BASE || "9.2.2" == $BASE || "peoplemanager" == $BASE || "tumblr-editor" == $BASE ]]; then continue; fi
+        # if [[ "chatio" == $BASE || "dubloons" == $BASE || "hs-stdlib" == $BASE || "jobfinder" == $BASE || "9.2.2" == $BASE || "peoplemanager" == $BASE || "tumblr-editor" == $BASE ]]; then continue; fi
 
         PREFIX="$BASE ($PROJECTNUMBER/$NUMPROJECTS) >>> "
         PREFIX_SED="$BASE ($PROJECTNUMBER\/$NUMPROJECTS) >>> "

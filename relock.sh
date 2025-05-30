@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#! nix-shell -p "haskell.packages.ghc910.ghcWithPackages (ghc: with ghc; [ cabal-install ])" -i bash
+#! nix-shell -p haskell.compiler.ghc912 cabal-install -i bash
 set -euo pipefail
 INITDIR=~/code
 cd $INITDIR

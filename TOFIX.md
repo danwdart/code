@@ -5,7 +5,7 @@ Grand list of overrides excluding other86, jobfinder, tumblr-editor and consolef
 # https://github.com/AndrewRademacher/aeson-casing/issues/7
 aeson-casing = lib.dontCheck super.aeson-casing;
 # ghc-exactprint: base >= 4.8 && <4.16, ghc >=7.10.2 && <9.2
-apply-refact = ghc910.apply-refact;
+apply-refact = ghc912.apply-refact;
 brick = lib.doJailbreak super.brick;
 clay = lib.doJailbreak super.clay;
 # Don't know why I need a doJailbreak in here, the version restriction of base
@@ -61,7 +61,7 @@ haskell-docs-cli = self.callCabal2nix "haskell-docs-cli" (builtins.fetchGit {
     rev = "6c40bd41f0f6be5f06afae2836c42710dc05cd87";
 }) {};
 # text >=0.11 && <1.3
-hasktags                    = ghc910.hasktags;
+hasktags                    = ghc912.hasktags;
 hgettext = lib.markUnbroken super.hgettext;
 # https://github.com/haskell-hint/hint/issues/151
 hint = lib.dontCheck (self.callCabal2nix "hint" (nixpkgs.fetchFromGitHub {
@@ -72,7 +72,7 @@ hint = lib.dontCheck (self.callCabal2nix "hint" (nixpkgs.fetchFromGitHub {
     sha256 = "JwPHBNox1EUrT0nOanqA1ge1VbZ5bCIAcFGvJ8UBvVA=";
 }) {});
 # ghc-lib-parser >=9.0 && <9.1, ghc-lib-parser-ex >=9.0.0.4 && <9.0.1
-hlint                       = ghc910.hlint;
+hlint                       = ghc912.hlint;
 # 2.1.0: aeson >=1.5 && <2.1
 hslua-aeson = lib.doJailbreak super.hslua-aeson;
 # not in nix yet
@@ -112,7 +112,7 @@ req = self.callHackage "req" "3.13.0" {};
 sdl2 = lib.doJailbreak super.sdl2;
 slist = lib.doJailbreak super.slist;
 # also: https://github.com/kowainik/slist/issues/55
-stan                        = lib.dontCheck ((ghc910.override {
+stan                        = lib.dontCheck ((ghc912.override {
     overrides = self: super: rec {
     # https://github.com/kowainik/extensions/issues/74
     extensions = lib.doJailbreak (self.callCabal2nix "extensions" (builtins.fetchGit {
@@ -124,7 +124,7 @@ stan                        = lib.dontCheck ((ghc910.override {
     trial-tomland = lib.doJailbreak (lib.markUnbroken super.trial-tomland);
     clay = lib.doJailbreak super.clay;
     slist = lib.doJailbreak super.slist;
-    # relude 1.0.0.1: Module ‘Data.Semigroup’ does not export ‘Option(..)’ if using ghc910
+    # relude 1.0.0.1: Module ‘Data.Semigroup’ does not export ‘Option(..)’ if using ghc912
     # relude = lib.doJailbreak (self.callHackage "relude" "1.1.0.0" {});
     };
 # https://github.com/kowainik/stan/issues/423
@@ -136,7 +136,7 @@ stan                        = lib.dontCheck ((ghc910.override {
 # 0.0.4: text >=1.2 && <1.3
 string-qq = lib.doJailbreak super.string-qq;
 # ghc-lib-parser: base >= 4.14 && <4.17, ghc-prim >0.2 && <0.9, time >=1.4 && <1.12
-stylish-haskell = ghc910.stylish-haskell;
+stylish-haskell = ghc912.stylish-haskell;
 text-display = lib.doJailbreak (lib.markUnbroken super.text-display);
 # https://github.com/kowainik/trial/issues/67
 trial-tomland = lib.doJailbreak (lib.markUnbroken super.trial-tomland);
@@ -144,4 +144,4 @@ trial-tomland = lib.doJailbreak (lib.markUnbroken super.trial-tomland);
 vty = lib.doJailbreak (self.callHackage "vty" "5.37" {});
 
 # dhall 1.40.2: aeson >=1.0.0.0 && <2.1, template-haskell >=2.13.0.0 && <2.19
-weeder                      = ghc910.weeder;
+weeder                      = ghc912.weeder;
