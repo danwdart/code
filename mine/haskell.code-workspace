@@ -49,10 +49,6 @@
 			"path": "haskell/openfaas-examples"
 		},
 		{
-			"name": "hs-stdlib",
-			"path": "haskell/hs-stdlib"
-		},
-		{
 			"name": "jobfinder",
 			"path": "haskell/jobfinder"
 		},
