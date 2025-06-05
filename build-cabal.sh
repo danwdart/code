@@ -13,10 +13,12 @@ checkCabal() {
 
 
 buildCabal_shell() {
-    HERE=$1
-    FILES_REQUIRED=$2
-    SHELL=$3
-    PROJECT=$4
+    HERE="$1"
+    FILES_REQUIRED="$2"
+    SHELL="$3"
+    PREFIX="$4"
+    CABAL="$5"
+    HSC2HS="$6"
     # nix-shell -j auto -p zlib haskell.compiler.ghc912 cabal-install --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.12: /'
     # cabal clean && 
     if [ ! -f "$SHELL" ]
@@ -29,24 +31,17 @@ buildCabal_shell() {
         return
     fi
 
-    if [ ! -f "$PROJECT" ]
-    then
-        echo No $PROJECT file for $HERE.
-        exit 1
-        return
-    fi
-
-    nix-build --extra-experimental-features flakes $SHELL -o result-$SHELL-shell
-    nix-shell --extra-experimental-features flakes $SHELL --run "cabal new-build --project-file=$PROJECT -j --minimize-conflict-set" 2>&1 | sed "s/^/GHC in $SHELL: /"
+    nix-build --extra-experimental-features flakes "$SHELL" -o result-$SHELL-shell 
+    nix-shell --extra-experimental-features flakes "$SHELL" --run "$CABAL new-build --with-compiler=$PREFIX --with-hc-pkg=$PREFIX-pkg --with-hsc2hs=$HSC2HS -j --minimize-conflict-set" 2>&1 | sed "s/^/GHC in $SHELL: /"
     # nix-shell -p "haskell.packages.ghc912.cabal-clean" --run "cabal-clean" 2>&1 | sed 's/^/cabal-clean: /' || exit 1
     # nix-shell -j auto shell-jsbackend.nix --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.12 JS Backend: /'
     # nix-shell -j auto -p "pkgsCross.ghcjs.pkgsBuildHost.haskell.compiler.ghc912 cabal-install" --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.12 JS Backend: /'
 }
 
 buildCabal() {
-    buildCabal_shell $1 true shell.nix cabal.project
-    buildCabal_shell $1 false shell-jsbackend.nix cabal-jsbackend.project
-    buildCabal_shell $1 false shell-wasm.nix cabal-wasm.project
+    buildCabal_shell $1 true shell.nix ghc cabal hsc2hs
+    buildCabal_shell $1 false shell-jsbackend.nix javascript-unknown-ghcjs-ghc cabal javascript-unknown-ghcjs-hsc2hs
+    buildCabal_shell $1 false shell-wasm.nix wasm32-wasi-ghc wasm32-wasi-cabal wasm32-wasi-hsc2hs
 }
 
 help() {
@@ -61,8 +56,11 @@ nix-channel --update
 # nix-build -E "with import <nixpkgs> {}; (haskell.compiler.ghc912 cabal-install)" | cachix push dandart 2>&1 | sed 's/^/pushing cabal: /'
 nix-shell -j auto -p haskell.compiler.ghc912 cabal-install --run "cabal update" 2>&1 | sed 's/^/cabal update: /'
 nix-shell -j auto -p haskell.compiler.ghc912 cabal-install --run "cabal new-update" 2>&1 | sed 's/^/cabal new-update: /'
+nix-shell -j auto -p pkgsCross.ghcjs.pkgsBuildHost.haskell.compiler.ghc912 cabal-install --run "cabal update" 2>&1 | sed 's/^/ghcjs cabal update: /'
+nix-shell -j auto -p pkgsCross.ghcjs.pkgsBuildHost.haskell.compiler.ghc912 cabal-install --run "cabal new-update" 2>&1 | sed 's/^/ghcjs cabal new-update: /'
+nix-shell --extra-experimental-features flakes -j auto -p "(builtins.getFlake "gitlab:haskell-wasm/ghc-wasm-meta?host=gitlab.haskell.org").packages.x86_64-linux.default" --run "wasm32-wasi-cabal update" 2>&1 | sed 's/^/wasm32-wasi-cabal update: /'
+nix-shell --extra-experimental-features flakes -j auto -p "(builtins.getFlake "gitlab:haskell-wasm/ghc-wasm-meta?host=gitlab.haskell.org").packages.x86_64-linux.default" --run "wasm32-wasi-cabal new-update" 2>&1 | sed 's/^/wasm32-wasi-cabal new-update: /'
 
-ORIG=$(pwd)
 CODEDIRS="$PWD/mine $PWD/contrib"
 NUMCODEDIRS=0
 for CODEDIR in $CODEDIRS
@@ -76,7 +74,7 @@ do
     # Uncomment to skip
     # if [ 2 -gt $CODEDIRNUMBER ]; then continue; fi
 
-    cd $CODEDIR
+    pushd $CODEDIR
     echo Finding Nix projects in $CODEDIR...
     # jobfinder, websites
     PROJECTS=$(find $CODEDIR -name "*.cabal" | \
@@ -142,5 +140,5 @@ do
     popd
     echo "Finished processing Nix projects in $CODEDIR"
 done
-cd $ORIG
+popd
 echo "Finished all"
