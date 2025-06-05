@@ -16,9 +16,10 @@ buildCabal_shell() {
     HERE="$1"
     FILES_REQUIRED="$2"
     SHELL="$3"
-    PREFIX="$4"
-    CABAL="$5"
-    HSC2HS="$6"
+    CABAL="$4"
+    COMPILER="$5"
+    HC_PKG="$6"
+    HSC2HS="$7"
     # nix-shell -j auto -p zlib haskell.compiler.ghc912 cabal-install --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.12: /'
     # cabal clean && 
     if [ ! -f "$SHELL" ]
@@ -32,16 +33,16 @@ buildCabal_shell() {
     fi
 
     nix-build --extra-experimental-features flakes "$SHELL" -o result-$SHELL-shell 
-    nix-shell --extra-experimental-features flakes "$SHELL" --run "$CABAL new-build --with-compiler=$PREFIX --with-hc-pkg=$PREFIX-pkg --with-hsc2hs=$HSC2HS -j --minimize-conflict-set" 2>&1 | sed "s/^/GHC in $SHELL: /"
+    nix-shell --extra-experimental-features flakes "$SHELL" --run "$CABAL new-build --with-compiler=$COMPILER --with-hc-pkg=$HC_PKG --with-hsc2hs=$HSC2HS -j --minimize-conflict-set" 2>&1 | sed "s/^/GHC in $SHELL: /"
     # nix-shell -p "haskell.packages.ghc912.cabal-clean" --run "cabal-clean" 2>&1 | sed 's/^/cabal-clean: /' || exit 1
     # nix-shell -j auto shell-jsbackend.nix --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.12 JS Backend: /'
     # nix-shell -j auto -p "pkgsCross.ghcjs.pkgsBuildHost.haskell.compiler.ghc912 cabal-install" --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.12 JS Backend: /'
 }
 
 buildCabal() {
-    buildCabal_shell $1 true shell.nix ghc cabal hsc2hs
-    buildCabal_shell $1 false shell-jsbackend.nix javascript-unknown-ghcjs-ghc cabal javascript-unknown-ghcjs-hsc2hs
-    buildCabal_shell $1 false shell-wasm.nix wasm32-wasi-ghc wasm32-wasi-cabal wasm32-wasi-hsc2hs
+    buildCabal_shell $1 true shell.nix cabal ghc ghc-pkg hsc2hs
+    buildCabal_shell $1 false shell-jsbackend.nix cabal javascript-unknown-ghcjs-ghc javascript-unknown-ghcjs-ghc-pkg javascript-unknown-ghcjs-hsc2hs
+    buildCabal_shell $1 false shell-wasm.nix wasm32-wasi-cabal wasm32-wasi-ghc wasm32-wasi-ghc-pkg wasm32-wasi-hsc2hs
 }
 
 help() {
