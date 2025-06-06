@@ -5,10 +5,10 @@ set -euo pipefail
 trap pwd ERR
 
 checkCabal() {
-    nix-shell -p haskell.compiler.ghc912 cabal-install --run "cabal outdated" 2>&1 || exit 1 | sed 's/^/Cabal outdated: /' 
+    nix-shell -p haskell.compiler.ghc912 cabal-install --run "cabal outdated --exit-code" 2>&1 | sed 's/^/Cabal outdated: /' 
 
     # nix-shell -p haskell.compiler.ghc912 cabal-install --run "cabal check" 2>&1 | sed 's/^/Cabal check: /'
-    return 0
+    # return 0
 }
 
 
@@ -98,6 +98,7 @@ do
         grep -v tumblr-api | \
         grep -v yt-sort | \
         grep -v java | \
+        grep -v js-backend | \
         grep -v nixpkgs
         # grep -v tumblr-editor | \
         # grep -v hs-webdriver | \
