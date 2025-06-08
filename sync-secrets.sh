@@ -26,7 +26,7 @@ do
     cd $CODEDIR
     echo Finding Nix projects in $CODEDIR...
     # jobfinder, websites
-    PROJECTS=$(find $CODEDIR -name default.nix | grep -v external | grep -v dist-newstyle)
+    PROJECTS=$(find $CODEDIR -name default.nix | grep -v external | grep -v "dist-*")
     NUMPROJECTS=0
     for FILE in $PROJECTS
     do

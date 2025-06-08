@@ -16,7 +16,7 @@ do
         grep -v discord-webhook | \
         grep -v ffijs | \
         grep -v kmlfun | \
-        grep -v dist-newstyle | \
+        grep -v "dist-*" | \
         grep -v onlybase | \
         grep -v onlycore | \
         grep -v js-backend | \

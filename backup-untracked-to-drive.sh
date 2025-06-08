@@ -5,7 +5,7 @@ mkBackup7z() {
 
     FILES=$(git submodule foreach --recursive --quiet 'git ls-files -io --exclude-standard | \
         grep -v node_modules | \
-        grep -v dist-newstyle | \
+        grep -v "dist-*" | \
         grep -v result | \
         grep -v .direnv | \
         grep -v hie.yaml | \
@@ -29,7 +29,7 @@ mkBackup7z() {
 
     FILES_SKIPPED=$(git submodule foreach --recursive --quiet 'git ls-files -v | grep ^S | sed -e "s@^S\s@@g" | \
         grep -v node_modules | \
-        grep -v dist-newstyle | \
+        grep -v "dist-*" | \
         grep -v result | \
         grep -v .direnv | \
         grep -v hie.yaml | \

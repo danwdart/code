@@ -20,6 +20,7 @@ buildCabal_shell() {
     COMPILER="$5"
     HC_PKG="$6"
     HSC2HS="$7"
+    EXTRA_CABAL_FLAGS="$8"
     # nix-shell -j auto -p zlib haskell.compiler.ghc912 cabal-install --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.12: /'
     # cabal clean && 
     if [ ! -f "$SHELL" ]
@@ -31,23 +32,30 @@ buildCabal_shell() {
         fi
         return
     fi
-
-    nix-build --extra-experimental-features flakes "$SHELL" -o result-$SHELL-shell 
-    nix-shell --extra-experimental-features flakes "$SHELL" --run "$CABAL new-build --with-compiler=$COMPILER --with-hc-pkg=$HC_PKG --with-hsc2hs=$HSC2HS -j --minimize-conflict-set" 2>&1 | sed "s/^/GHC in $SHELL: /"
+    echo "Building the shell..."
+    nix-build --extra-experimental-features flakes "$SHELL" -o result-$SHELL-shell
+    echo "Built the shell. Building the package..."
+    nix-shell --extra-experimental-features flakes "$SHELL" --run "$CABAL new-build --with-compiler=$COMPILER --with-hc-pkg=$HC_PKG --with-hsc2hs=$HSC2HS $EXTRA_CABAL_FLAGS -j --minimize-conflict-set" 2>&1 | sed "s/^/GHC in $SHELL: /"
     # nix-shell -p "haskell.packages.ghc912.cabal-clean" --run "cabal-clean" 2>&1 | sed 's/^/cabal-clean: /' || exit 1
     # nix-shell -j auto shell-jsbackend.nix --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.12 JS Backend: /'
     # nix-shell -j auto -p "pkgsCross.ghcjs.pkgsBuildHost.haskell.compiler.ghc912 cabal-install" --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.12 JS Backend: /'
+    echo "Built the package."
 }
 
 buildCabal() {
-    buildCabal_shell $1 true shell.nix cabal ghc ghc-pkg hsc2hs
-    buildCabal_shell $1 false shell-jsbackend.nix cabal javascript-unknown-ghcjs-ghc javascript-unknown-ghcjs-ghc-pkg javascript-unknown-ghcjs-hsc2hs
-    buildCabal_shell $1 false shell-wasm.nix wasm32-wasi-cabal wasm32-wasi-ghc wasm32-wasi-ghc-pkg wasm32-wasi-hsc2hs
+    echo "Building cabal ghc."
+    buildCabal_shell $1 true shell.nix cabal ghc ghc-pkg hsc2hs ""
+    echo "Building cabal musl."
+    buildCabal_shell $1 false shell-musl.nix cabal ghc ghc-pkg hsc2hs "--builddir=dist-musl -fmusl"
+    echo "Building cabal jsbackend."
+    buildCabal_shell $1 false shell-jsbackend.nix cabal javascript-unknown-ghcjs-ghc javascript-unknown-ghcjs-ghc-pkg javascript-unknown-ghcjs-hsc2hs ""
+    echo "Building cabal wasm."
+    buildCabal_shell $1 false shell-wasm.nix wasm32-wasi-cabal wasm32-wasi-ghc wasm32-wasi-ghc-pkg wasm32-wasi-hsc2hs ""
 }
 
 help() {
     echo "Usage: $0 (n)"
-    echo "n: "
+    echo "n: number to skip to"
 }
 
 nix-channel --update
@@ -55,12 +63,16 @@ nix-channel --update
 # nix-store -qR --include-outputs $(nix-instantiate -E "with import <nixpkgs> {}; (haskell.compiler.ghc912 cabal-install)" --add-root cabalroot --indirect) | cachix push dandart 2>&1 | sed 's/^/pushing cabal: /'
 # nix-store -qR --include-outputs $(nix-store -qd $(nix-build -E "with import <nixpkgs> {}; (haskell.compiler.ghc912 cabal-install)")) | grep -v '\.drv$' | cachix push dandart 2>&1 | sed 's/^/pushing cabal: /'
 # nix-build -E "with import <nixpkgs> {}; (haskell.compiler.ghc912 cabal-install)" | cachix push dandart 2>&1 | sed 's/^/pushing cabal: /'
+echo "Updating cabal packages..."
 nix-shell -j auto -p haskell.compiler.ghc912 cabal-install --run "cabal update" 2>&1 | sed 's/^/cabal update: /'
-nix-shell -j auto -p haskell.compiler.ghc912 cabal-install --run "cabal new-update" 2>&1 | sed 's/^/cabal new-update: /'
+# nix-shell -j auto -p haskell.compiler.ghc912 cabal-install --run "cabal new-update" 2>&1 | sed 's/^/cabal new-update: /'
+echo "Cabal packages updated. Updating cabal-ghcjs packages..."
 nix-shell -j auto -p pkgsCross.ghcjs.pkgsBuildHost.haskell.compiler.ghc912 cabal-install --run "cabal update" 2>&1 | sed 's/^/ghcjs cabal update: /'
-nix-shell -j auto -p pkgsCross.ghcjs.pkgsBuildHost.haskell.compiler.ghc912 cabal-install --run "cabal new-update" 2>&1 | sed 's/^/ghcjs cabal new-update: /'
+# nix-shell -j auto -p pkgsCross.ghcjs.pkgsBuildHost.haskell.compiler.ghc912 cabal-install --run "cabal new-update" 2>&1 | sed 's/^/ghcjs cabal new-update: /'
+echo "cabal-ghcjs packages updated. Updating cabal-wasm packages..."
 nix-shell --extra-experimental-features flakes -j auto -p "(builtins.getFlake "gitlab:haskell-wasm/ghc-wasm-meta?host=gitlab.haskell.org").packages.x86_64-linux.default" --run "wasm32-wasi-cabal update" 2>&1 | sed 's/^/wasm32-wasi-cabal update: /'
-nix-shell --extra-experimental-features flakes -j auto -p "(builtins.getFlake "gitlab:haskell-wasm/ghc-wasm-meta?host=gitlab.haskell.org").packages.x86_64-linux.default" --run "wasm32-wasi-cabal new-update" 2>&1 | sed 's/^/wasm32-wasi-cabal new-update: /'
+# nix-shell --extra-experimental-features flakes -j auto -p "(builtins.getFlake "gitlab:haskell-wasm/ghc-wasm-meta?host=gitlab.haskell.org").packages.x86_64-linux.default" --run "wasm32-wasi-cabal new-update" 2>&1 | sed 's/^/wasm32-wasi-cabal new-update: /'
+echo "cabal-wasm packages updated. Traversing directory structure..."
 
 CODEDIRS="$PWD/mine $PWD/contrib"
 NUMCODEDIRS=0
@@ -91,7 +103,7 @@ do
         grep -v external | \
         grep -v ghcjs | \
         grep -v slsdemo | \
-        grep -v dist-newstyle | \
+        grep -v "dist-*" | \
         grep -v reflex-platform | \
         grep -v wasm-backend | \
         grep -v cards-ui | \

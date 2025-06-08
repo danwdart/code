@@ -133,7 +133,7 @@ do
         grep -v haskell-tools | \
         grep -v external | \
         grep -v ghcjs | \
-        grep -v dist-newstyle | \
+        grep -v "dist-*" | \
         grep -v reflex-platform | \
         grep -v wasm-backend | \
         grep -v cards-ui | \

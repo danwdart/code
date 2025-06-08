@@ -3,7 +3,7 @@ ENSURE_FILES=".hlint.yaml .stylish-haskell.yaml .gitignore .envrc"
 ENSURE_DELETE=".hlint .stylish-haskell"
 MODEL_DIR=/home/dwd/code/mine/haskell/compositions
 STARTDIR=/home/dwd/code
-CABALS=$(find -name *.cabal | grep -v contrib | grep -v compositions | grep -v dist-newstyle | grep -v result | grep -v external | grep -v reflex-platform | grep -v wasm-cross)
+CABALS=$(find -name *.cabal | grep -v contrib | grep -v compositions | grep -v "dist-*" | grep -v result | grep -v external | grep -v reflex-platform | grep -v wasm-cross)
 cd $STARTDIR
 for CABAL in $CABALS
 do

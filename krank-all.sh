@@ -7,7 +7,7 @@ for CODEDIR in $CODEDIRS
 do
     cd $CODEDIR
     echo Finding Nix projects in $CODEDIR...
-    PROJECTS=$(find $CODEDIR -name default.nix | grep -v external | grep -v ghcjs | grep -v dist-newstyle | grep -v wasm-cross | grep -v reflex-platform | grep -v templates)
+    PROJECTS=$(find $CODEDIR -name default.nix | grep -v external | grep -v ghcjs | grep -v "dist-*" | grep -v wasm-cross | grep -v reflex-platform | grep -v templates)
     NUMPROJECTS=0
     for FILE in $PROJECTS
     do

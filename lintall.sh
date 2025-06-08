@@ -12,13 +12,13 @@ for DIRLOC in ~/code/mine/haskell ~/code/mine/multi/projects/haskell ~/code/cont
 do
     echo Using repos location $DIRLOC
     cd $DIRLOC
-    for CABALS in $(find $DIRLOC -name "*.cabal" | grep -v .stack-work | grep -v dist-newstyle | grep -v reflex-platform)
+    for CABALS in $(find $DIRLOC -name "*.cabal" | grep -v .stack-work | grep -v "dist-*" | grep -v reflex-platform)
     do
         DIR=$(dirname $CABALS)
         BASE=$(basename $DIR)
         echo Updating $BASE...
         pushd $DIR
-        # FILES=$(find -name "*.hs" | grep -v .stack-work | grep -v dist-newstyle | grep -v reflex-platform)
+        # FILES=$(find -name "*.hs" | grep -v .stack-work | grep -v "dist-*" | grep -v reflex-platform)
         # echo Going to deal with $FILES
         # echo Running hlint...
         # parallel --halt never hlint --refactor --refactor-options=-i ::: $FILES || echo Failure running hlint
