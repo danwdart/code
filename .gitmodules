@@ -517,3 +517,6 @@
 [submodule "contrib/nixpkgs"]
 	path = contrib/nixpkgs
 	url = git@github.com:danwdart/nixpkgs.git
+[submodule "other/baresifter"]
+	path = other/baresifter
+	url = git@github.com:blitz/baresifter.git
