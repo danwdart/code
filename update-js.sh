@@ -3,14 +3,14 @@
 set -euxo pipefail
 
 CODEDIR=$PWD/mine
-cd $CODEDIR
+cd "$CODEDIR"
 echo Finding JS projects...
-for FILE in $(find $CODEDIR -name package.json | grep -v bower_components | grep -v node_modules)
+for FILE in $(find "$CODEDIR" -name package.json | grep -v bower_components | grep -v node_modules)
 do
-    DIRLOC=$(dirname $FILE)
-    BASE=$(basename $DIRLOC)
-    echo Entering $DIRLOC
-    cd $DIRLOC
+    DIRLOC=$(dirname "$FILE")
+    BASE=$(basename "$DIRLOC")
+    echo Entering "$DIRLOC"
+    cd "$DIRLOC"
     git pull
     if [[ -f .gitmodules ]]
     then
@@ -30,5 +30,5 @@ do
     git commit -m "npm updates for $BASE" || echo "Nothing to commit, don't care"
     git push
 done
-cd $CODEDIR
+cd "$CODEDIR"
 echo "Done!"

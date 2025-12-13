@@ -23,7 +23,7 @@ mkBackup7z() {
         grep -v .next | \
         grep -v woocommerce | \
         grep -v external | \
-        grep -v build | sed -e 's@^@\$displaypath/@'') || exit 1
+        grep -v build | sed -e 's@^@\$displaypath/@') || exit 1
 
     echo "Finding skipped files..."
 
@@ -47,7 +47,7 @@ mkBackup7z() {
         grep -v .next | \
         grep -v woocommerce | \
         grep -v external | \
-        grep -v build | sed -e 's@^@\$displaypath/@'') || exit 1
+        grep -v build | sed -e 's@^@\$displaypath/@') || exit 1
 
     IFS=$'\n'
     for FILE in $FILES

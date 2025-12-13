@@ -5,6 +5,13 @@ set -euo pipefail
 trap pwd ERR
 
 checkCabal() {
+    HERE="$1"
+
+    if [[ "tumblr-editor" == "$HERE" || "websites" == "$HERE" ]]
+    then
+        echo Ignoring running cabal-outdated.
+        return 0
+    fi
     nix-shell -p haskell.compiler.ghc912 cabal-install --run "cabal outdated --exit-code" 2>&1 | sed 's/^/Cabal outdated: /' 
 
     # nix-shell -p haskell.compiler.ghc912 cabal-install --run "cabal check" 2>&1 | sed 's/^/Cabal check: /'
@@ -25,7 +32,7 @@ buildCabal_shell() {
     # cabal clean && 
     if [ ! -f "$SHELL" ]
     then
-        echo No $SHELL file for $HERE.
+        echo No "$SHELL" file for "$HERE".
         if [ "$FILES_REQUIRED" == "true" ]
         then
             exit 1
@@ -33,7 +40,7 @@ buildCabal_shell() {
         return
     fi
     echo "Building the shell..."
-    nix-build --extra-experimental-features flakes "$SHELL" -o result-$SHELL-shell
+    nix-build --extra-experimental-features flakes "$SHELL" -o result-"$SHELL"-shell
     echo "Built the shell. Building the package..."
     nix-shell --extra-experimental-features flakes "$SHELL" --run "$CABAL new-build --with-compiler=$COMPILER --with-hc-pkg=$HC_PKG --with-hsc2hs=$HSC2HS $EXTRA_CABAL_FLAGS -j --minimize-conflict-set" 2>&1 | sed "s/^/GHC in $SHELL: /"
     # nix-shell -p "haskell.packages.ghc912.cabal-clean" --run "cabal-clean" 2>&1 | sed 's/^/cabal-clean: /' || exit 1
@@ -44,13 +51,13 @@ buildCabal_shell() {
 
 buildCabal() {
     echo "Building cabal ghc."
-    buildCabal_shell $1 true shell.nix cabal ghc ghc-pkg hsc2hs ""
-    echo "Building cabal musl."
-    buildCabal_shell $1 false shell-musl.nix cabal ghc ghc-pkg hsc2hs "--builddir=dist-musl -fmusl"
-    echo "Building cabal jsbackend."
-    buildCabal_shell $1 false shell-jsbackend.nix cabal javascript-unknown-ghcjs-ghc javascript-unknown-ghcjs-ghc-pkg javascript-unknown-ghcjs-hsc2hs ""
+    buildCabal_shell "$1" true shell.nix cabal ghc ghc-pkg hsc2hs ""
+    # echo "Building cabal musl."
+    # buildCabal_shell $1 false shell-musl.nix cabal ghc ghc-pkg hsc2hs "--builddir=dist-musl -fmusl"
+    # echo "Building cabal jsbackend."
+    # buildCabal_shell $1 false shell-jsbackend.nix cabal javascript-unknown-ghcjs-ghc javascript-unknown-ghcjs-ghc-pkg javascript-unknown-ghcjs-hsc2hs ""
     echo "Building cabal wasm."
-    buildCabal_shell $1 false shell-wasm.nix wasm32-wasi-cabal wasm32-wasi-ghc wasm32-wasi-ghc-pkg wasm32-wasi-hsc2hs ""
+    buildCabal_shell "$1" false shell-wasm.nix wasm32-wasi-cabal wasm32-wasi-ghc wasm32-wasi-ghc-pkg wasm32-wasi-hsc2hs ""
 }
 
 help() {
@@ -66,8 +73,8 @@ nix-channel --update
 echo "Updating cabal packages..."
 nix-shell -j auto -p haskell.compiler.ghc912 cabal-install --run "cabal update" 2>&1 | sed 's/^/cabal update: /'
 # nix-shell -j auto -p haskell.compiler.ghc912 cabal-install --run "cabal new-update" 2>&1 | sed 's/^/cabal new-update: /'
-echo "Cabal packages updated. Updating cabal-ghcjs packages..."
-nix-shell -j auto -p pkgsCross.ghcjs.pkgsBuildHost.haskell.compiler.ghc912 cabal-install --run "cabal update" 2>&1 | sed 's/^/ghcjs cabal update: /'
+# echo "Cabal packages updated. Updating cabal-ghcjs packages..."
+# nix-shell -j auto -p pkgsCross.ghcjs.pkgsBuildHost.haskell.compiler.ghc912 cabal-install --run "cabal update" 2>&1 | sed 's/^/ghcjs cabal update: /'
 # nix-shell -j auto -p pkgsCross.ghcjs.pkgsBuildHost.haskell.compiler.ghc912 cabal-install --run "cabal new-update" 2>&1 | sed 's/^/ghcjs cabal new-update: /'
 echo "cabal-ghcjs packages updated. Updating cabal-wasm packages..."
 nix-shell --extra-experimental-features flakes -j auto -p "(builtins.getFlake "gitlab:haskell-wasm/ghc-wasm-meta?host=gitlab.haskell.org").packages.x86_64-linux.default" --run "wasm32-wasi-cabal update" 2>&1 | sed 's/^/wasm32-wasi-cabal update: /'
@@ -87,10 +94,10 @@ do
     # Uncomment to skip
     # if [ 2 -gt $CODEDIRNUMBER ]; then continue; fi
 
-    pushd $CODEDIR
-    echo Finding Nix projects in $CODEDIR...
+    pushd "$CODEDIR"
+    echo Finding Nix projects in "$CODEDIR"...
     # jobfinder, websites
-    PROJECTS=$(find $CODEDIR -name "*.cabal" | \
+    PROJECTS=$(find "$CODEDIR" -name "*.cabal" | \
         grep -v jobfinder | \
         grep -v archery | \
         # grep -v family | \
@@ -128,28 +135,29 @@ do
         ((PROJECTNUMBER+=1))
 
         # Uncomment to skip
-        if [[ $# > 0 && $1 -gt $PROJECTNUMBER ]]
+        if [[ $# -gt 0 && $1 -gt $PROJECTNUMBER ]]
         then
-            echo Skipping $FILE
+            echo Skipping "$FILE"
             continue
         fi
 
-        DIRLOC=$(dirname $FILE)
-        BASE=$(basename $DIRLOC)
+        DIRLOC=$(dirname "$FILE")
+        BASE=$(basename "$DIRLOC")
 
         PREFIX="$BASE ($PROJECTNUMBER/$NUMPROJECTS) >>> "
         PREFIX_SED="$BASE ($PROJECTNUMBER\/$NUMPROJECTS) >>> "
 
         echo "$PREFIX Entering $DIRLOC"
-        pushd $DIRLOC
+        pushd "$DIRLOC"
         if [[ -f .gitmodules ]]
         then
             echo "$PREFIX .gitmodules found, updating..."
             git submodule update --init --recursive
         fi
         echo "$PREFIX Building cabal-only..."
-        checkCabal $BASE 2>&1 | sed "s/^/$PREFIX_SED: Cabal checking: /g"
-        buildCabal $BASE 2>&1 | sed "s/^/$PREFIX_SED: Cabal: /g"
+        checkCabal "$BASE" 2>&1 | sed "s/^/$PREFIX_SED: Cabal checking: /g"
+        buildCabal "$BASE" 2>&1 | sed "s/^/$PREFIX_SED: Cabal: /g"
+        popd
     done
     popd
     echo "Finished processing Nix projects in $CODEDIR"

@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 set -e
 CODEDIR=$PWD/mine
-cd $CODEDIR
+cd "$CODEDIR"
 echo Finding dotenvrc projects...
-for FILE in $(find $CODEDIR -name .envrc | grep -v "dist-*")
+for FILE in $(find "$CODEDIR" -name .envrc | grep -v "dist-*")
 do
-    echo $FILE
-    DIRLOC=$(dirname $FILE)
-    echo $DIRLOC
-    cd $DIRLOC
+    echo "$FILE"
+    DIRLOC=$(dirname "$FILE")
+    echo "$DIRLOC"
+    cd "$DIRLOC"
     echo Allowing direnv...
     direnv allow
     direnv exec . echo "direnv set up."
 done
-cd $CODEDIR
+cd "$CODEDIR"

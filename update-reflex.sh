@@ -3,17 +3,17 @@
 set -euxo pipefail
 
 CODEDIR=$PWD/mine
-cd $CODEDIR
+cd "$CODEDIR"
 echo Finding Reflex projects...
-for DIR in $(find $CODEDIR -name reflex-platform)
+for DIR in $(find "$CODEDIR" -name reflex-platform)
 do
-    echo Entering $DIR
-    cd $DIR
+    echo Entering "$DIR"
+    cd "$DIR"
     git pull
     cd ..
     git add reflex-platform
     git commit -m 'Update reflex' || echo not all
     git push
 done
-cd $CODEDIR
+cd "$CODEDIR"
 echo Done!

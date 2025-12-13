@@ -1,13 +1,13 @@
 #!/bin/sh
 git config -f .gitmodules --get-regexp '^submodule\..*\.path$' |
-    while read path_key path
+    while read -r path_key path
     do
-        url_key=$(echo $path_key | sed 's/\.path/.url/');
-        branch_key=$(echo $path_key | sed 's/\.path/.branch/');
+        url_key="${$path_key//\.path/.url/}";
+        branch_key="${path_key//\.path/.branch/}";
         # If the url_key doesn't yet exist then backup up the existing
         # directory if necessary and add the submodule
-        if [ ! $(git config --get "$url_key") ]; then
-            if [ -d "$path" ] && [ ! $(git config --get "$url_key") ]; then
+        if [ ! "$(git config --get "$url_key")" ]; then
+            if [ -d "$path" ] && [ ! "$(git config --get "$url_key")" ]; then
                 mv "$path" "$path""_backup_""$(date +'%Y%m%d%H%M%S')";
             fi;
             url=$(git config -f .gitmodules --get "$url_key");

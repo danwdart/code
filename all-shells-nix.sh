@@ -7,7 +7,7 @@ trap pwd ERR
 
 pushShell() {
     # This gives a warning about --add-root but we already added the root above.
-    nix-store -qR --include-outputs $(nix-instantiate shell.nix) | cachix push dandart
+    nix-store -qR --include-outputs "$(nix-instantiate shell.nix)" | cachix push dandart
 }
 
 buildShell() {
@@ -19,9 +19,9 @@ ORIG=$(pwd)
 CODEDIRS="$PWD/mine" # $PWD/contrib
 for CODEDIR in $CODEDIRS
 do
-    cd $CODEDIR
-    echo Finding Nix projects in $CODEDIR...
-    PROJECTS=$(find $CODEDIR -name default.nix | grep -v external | grep -v ghcjs | grep -v "dist-*" | grep -v wasm-cross | grep -v reflex-platform | grep -v templates)
+    cd "$CODEDIR"
+    echo Finding Nix projects in "$CODEDIR"...
+    PROJECTS=$(find "$CODEDIR" -name default.nix | grep -v external | grep -v ghcjs | grep -v "dist-*" | grep -v wasm-cross | grep -v reflex-platform | grep -v templates)
     NUMPROJECTS=0
     for FILE in $PROJECTS
     do
@@ -31,8 +31,8 @@ do
     for FILE in $PROJECTS
     do
         ((PROJECTNUMBER+=1))
-        DIRLOC=$(dirname $FILE)
-        BASE=$(basename $DIRLOC)
+        DIRLOC=$(dirname "$FILE")
+        BASE=$(basename "$DIRLOC")
         PREFIX="$BASE ($PROJECTNUMBER/$NUMPROJECTS) >>> "
         PREFIX_SED="$BASE ($PROJECTNUMBER\/$NUMPROJECTS) >>> "
 
@@ -40,7 +40,7 @@ do
         # if [ 18 -gt $PROJECTNUMBER ]; then continue; fi
 
         echo "$PREFIX Entering $DIRLOC"
-        cd $DIRLOC
+        cd "$DIRLOC"
         if [[ -f .gitmodules ]]
         then
             echo "$PREFIX .gitmodules found, updating..."
@@ -52,8 +52,8 @@ do
             buildShell 2>&1 | sed "s/^/$PREFIX_SED /g"
         fi
     done
-    cd $CODEDIR
+    cd "$CODEDIR"
     echo "Finished processing Nix projects in $CODEDIR"
 done
-cd $ORIG
+cd "$ORIG"
 echo "Finished all"

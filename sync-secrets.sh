@@ -23,10 +23,10 @@ do
     # Uncomment to skip
     # if [ 2 -gt $CODEDIRNUMBER ]; then continue; fi
 
-    cd $CODEDIR
-    echo Finding Nix projects in $CODEDIR...
+    cd "$CODEDIR"
+    echo Finding Nix projects in "$CODEDIR"...
     # jobfinder, websites
-    PROJECTS=$(find $CODEDIR -name default.nix | grep -v external | grep -v "dist-*")
+    PROJECTS=$(find "$CODEDIR" -name default.nix | grep -v external | grep -v "dist-*")
     NUMPROJECTS=0
     for FILE in $PROJECTS
     do
@@ -40,14 +40,14 @@ do
         ((PROJECTNUMBER+=1))
 
         # Uncomment to skip
-        if [[ $# > 0 && $1 -gt $PROJECTNUMBER ]]
+        if [[ $# -gt 0 && $1 -gt $PROJECTNUMBER ]]
         then
-            echo Skipping $FILE
+            echo Skipping "$FILE"
             continue
         fi
 
-        DIRLOC=$(dirname $FILE)
-        BASE=$(basename $DIRLOC)
+        DIRLOC=$(dirname "$FILE")
+        BASE=$(basename "$DIRLOC")
 
         # if [[ "family" == $BASE ]]; then continue; fi
 
@@ -57,20 +57,20 @@ do
         # if [[ "9.4.2" == $BASE || "peoplemanager" == $BASE ]]; then continue; fi
 
         PREFIX="$BASE ($PROJECTNUMBER/$NUMPROJECTS) >>> "
-        PREFIX_SED="$BASE ($PROJECTNUMBER\/$NUMPROJECTS) >>> "
+        # PREFIX_SED="$BASE ($PROJECTNUMBER\/$NUMPROJECTS) >>> "
 
         echo "$PREFIX Entering $DIRLOC"
-        cd $DIRLOC
+        cd "$DIRLOC"
         if [[ -f .gitmodules ]]
         then
             echo "$PREFIX .gitmodules found, updating..."
             git submodule update --init --recursive
         fi
-        gh secret set -a actions -f $ORIG/.env.secrets
-        gh variable set -f $ORIG/.env.variables
+        gh secret set -a actions -f "$ORIG/.env.secrets"
+        gh variable set -f "$ORIG/.env.variables"
     done
-    cd $CODEDIR
+    cd "$CODEDIR"
     echo "Finished processing Nix projects in $CODEDIR"
 done
-cd $ORIG
+cd "$ORIG"
 echo "Finished all"

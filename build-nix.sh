@@ -70,8 +70,8 @@ buildCabal_ghc912_jsbackend() {
 }
 
 buildCabal() {
-    buildCabal_ghc912 $1
-    buildCabal_ghc912 $1
+    buildCabal_ghc912 "$1"
+    buildCabal_ghc912 "$1"
     # buildCabal_ghc912_jsbackend $1
     # buildCabal_ghc912_jsbackend $1
 }
@@ -118,10 +118,10 @@ do
     # Uncomment to skip
     # if [ 2 -gt $CODEDIRNUMBER ]; then continue; fi
 
-    cd $CODEDIR
-    echo Finding Nix projects in $CODEDIR...
+    cd "$CODEDIR"
+    echo Finding Nix projects in "$CODEDIR"...
     # jobfinder, websites
-    PROJECTS=$(find $CODEDIR -name default.nix | \
+    PROJECTS=$(find "$CODEDIR" -name default.nix | \
         grep -v jobfinder | \
         grep -v archery | \
         # grep -v family | \
@@ -156,41 +156,41 @@ do
         ((PROJECTNUMBER+=1))
 
         # Uncomment to skip
-        if [[ $# > 0 && $1 -gt $PROJECTNUMBER ]]
+        if [[ $# -gt 0 && $1 -gt $PROJECTNUMBER ]]
         then
-            echo Skipping $FILE
+            echo Skipping "$FILE"
             continue
         fi
 
-        DIRLOC=$(dirname $FILE)
-        BASE=$(basename $DIRLOC)
+        DIRLOC=$(dirname "$FILE")
+        BASE=$(basename "$DIRLOC")
 
         PREFIX="$BASE ($PROJECTNUMBER/$NUMPROJECTS) >>> "
         PREFIX_SED="$BASE ($PROJECTNUMBER\/$NUMPROJECTS) >>> "
 
         echo "$PREFIX Entering $DIRLOC"
-        pushd $DIRLOC
+        pushd "$DIRLOC"
         if [[ -f .gitmodules ]]
         then
             echo "$PREFIX .gitmodules found, updating..."
             git submodule update --init --recursive
         fi
         echo "$PREFIX Building cabal-only..."
-        checkCabal $BASE 2>&1 | sed "s/^/$PREFIX_SED: Cabal checking: /g"
-        buildCabal $BASE 2>&1 | sed "s/^/$PREFIX_SED: Cabal: /g"
+        checkCabal "$BASE" 2>&1 | sed "s/^/$PREFIX_SED: Cabal checking: /g"
+        buildCabal "$BASE" 2>&1 | sed "s/^/$PREFIX_SED: Cabal: /g"
         if [[ -f shell.nix ]]
         then
             echo "$PREFIX Nix Shell: Building shell.nix..."
             buildShell 2>&1 | sed "s/^/$PREFIX_SED: Nix Shell: /g"
             echo "$PREFIX Nix: Building default.nix..."
-            buildDefault $BASE 2>&1 | sed "s/^/$PREFIX_SED: Nix: /g"
+            buildDefault "$BASE" 2>&1 | sed "s/^/$PREFIX_SED: Nix: /g"
         else
             echo "$PREFIX No shell.nix detected, building default.nix"
-            buildDefault $BASE 2>&1 | sed "s/^/$PREFIX_SED: Nix: /g"
+            buildDefault "$BASE" 2>&1 | sed "s/^/$PREFIX_SED: Nix: /g"
         fi
     done
     popd
     echo "Finished processing Nix projects in $CODEDIR"
 done
-cd $ORIG
+cd "$ORIG"
 echo "Finished all"
