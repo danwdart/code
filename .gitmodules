@@ -523,3 +523,6 @@
 [submodule "other/szurubooru-auto-tagger"]
 	path = other/szurubooru-auto-tagger
 	url = git@github.com:Alkl58/szurubooru-auto-tagger.git
+[submodule "mine/haskell/criminally-undersubbed"]
+	path = mine/haskell/criminally-undersubbed
+	url = git@github.com:danwdart/criminally-undersubbed.git
