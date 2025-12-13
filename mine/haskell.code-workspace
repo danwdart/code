@@ -21,6 +21,10 @@
 			"path": "haskell/compositions"
 		},
 		{
+			"name": "criminally-undersubbed",
+			"path": "haskell/criminally-undersubbed"
+		},
+		{
 			"name": "discord-webhook",
 			"path": "haskell/discord-webhook"
 		},
@@ -109,11 +113,11 @@
 			"path": "../contrib/ddate"
 		},
 		{
-			"name": "req",
-			"path": "../contrib/req"
+			"name": "nixpkgs",
+			"path": "../contrib/nixpkgs"
 		},
 		{
-			"path": "../contrib/nixpkgs"
+			"path": "../../Nextcloud/Notes"
 		}
 	],
 	"settings": {

@@ -520,3 +520,6 @@
 [submodule "other/baresifter"]
 	path = other/baresifter
 	url = git@github.com:blitz/baresifter.git
+[submodule "other/szurubooru-auto-tagger"]
+	path = other/szurubooru-auto-tagger
+	url = git@github.com:Alkl58/szurubooru-auto-tagger.git
