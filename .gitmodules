@@ -305,10 +305,6 @@
 	path = mine/shell/glitcher
 	url = git@github.com:danwdart/glitcher.git
 	branch = master
-[submodule "mine/shell/gwallgofrwydd"]
-	path = mine/shell/gwallgofrwydd
-	url = git@github.com:danwdart/gwallgofrwydd.git
-	branch = master
 [submodule "mine/shell/install_everything"]
 	path = mine/shell/install_everything
 	url = git@github.com:danwdart/install_everything.git
@@ -526,3 +522,6 @@
 [submodule "mine/haskell/criminally-undersubbed"]
 	path = mine/haskell/criminally-undersubbed
 	url = git@github.com:danwdart/criminally-undersubbed.git
+[submodule "mine/haskell/hs-polynomial"]
+	path = mine/haskell/hs-polynomial
+	url = git@github.com:JolHarg/hs-polynomial.git
