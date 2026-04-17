@@ -49,6 +49,10 @@
 			"path": "haskell/hs-openfaas"
 		},
 		{
+			"name": "hs-polynomial",
+			"path": "haskell/hs-polynomial"
+		},
+		{
 			"name": "openfaas-examples",
 			"path": "haskell/openfaas-examples"
 		},
@@ -117,10 +121,17 @@
 			"path": "../contrib/nixpkgs"
 		},
 		{
+			"name": "Notes",
 			"path": "../../Nextcloud/Notes"
 		}
 	],
 	"settings": {
-		"nixEnvSelector.suggestion": false
+		"nixEnvSelector.suggestion": false,
+		"nixEnvSelector.nixFile": "${workspaceFolder}/shell.nix"
+	},
+	"extensions": {
+		"recommendations": [
+			"edka.haskutil"
+		]
 	}
 }
