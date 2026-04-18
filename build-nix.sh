@@ -5,13 +5,13 @@ set -euo pipefail
 trap pwd ERR
 
 checkCabal() {
-    nix-shell -p haskell.compiler.ghc912 cabal-install --run "cabal outdated" 2>&1 | sed 's/^/Cabal outdated: /' || exit 1
+    nix-shell -I nixpkgs=https://github.com/guibou/nixpkgs/archive/ghc-914.zip -p haskell.compiler.ghc914 cabal-install --run "cabal outdated" 2>&1 | sed 's/^/Cabal outdated: /' || exit 1
 
-    # nix-shell -p haskell.compiler.ghc912 cabal-install --run "cabal check" 2>&1 | sed 's/^/Cabal check: /'
+    # nix-shell -I nixpkgs=https://github.com/guibou/nixpkgs/archive/ghc-914.zip -p haskell.compiler.ghc914 cabal-install --run "cabal check" 2>&1 | sed 's/^/Cabal check: /'
     return 0
 }
 
-buildCabal_ghc912() {
+buildCabal_ghc914() {
     if [[ "$1" == "onlycore" || "$1" == "onlybase" ]]
     then
         echo "$1: updated to ghc 9.12 (only nix), skipping."
@@ -42,38 +42,38 @@ buildCabal_ghc912() {
         return 0
     fi
 
-    nix-shell -j auto -p zlib haskell.compiler.ghc912 cabal-install --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.10: /'
-    # nix-shell -p zlib haskell.compiler.ghc912 cabal-install
-    nix-shell -p "haskell.packages.ghc912.cabal-clean" --run "cabal-clean" 2>&1 | sed 's/^/cabal-clean: /' || exit 1
+    nix-shell -I nixpkgs=https://github.com/guibou/nixpkgs/archive/ghc-914.zip -j auto -p zlib haskell.compiler.ghc914 cabal-install --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.10: /'
+    # nix-shell -I nixpkgs=https://github.com/guibou/nixpkgs/archive/ghc-914.zip -p zlib haskell.compiler.ghc914 cabal-install
+    nix-shell -I nixpkgs=https://github.com/guibou/nixpkgs/archive/ghc-914.zip -p "haskell.packages.ghc914.cabal-clean" --run "cabal-clean" 2>&1 | sed 's/^/cabal-clean: /' || exit 1
 }
 
-buildCabal_ghc912() {
+buildCabal_ghc914() {
     if [[ "$1" != "onlycore" && "$1" != "onlybase" ]]
     then
         echo "Not using ghc 9.12 for this project yet."
         return 0
     fi
 
-    # nix-shell -j auto -p zlib haskell.compiler.ghc912 cabal-install --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.12: /'
-    nix-shell -p zlib haskell.compiler.ghc912 cabal-install --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.12: /'
-    nix-shell -p "haskell.packages.ghc912.cabal-clean" --run "cabal-clean" 2>&1 | sed 's/^/cabal-clean: /' || exit 1
+    # nix-shell -j auto -p zlib haskell.compiler.ghc914 cabal-install --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.12: /'
+    nix-shell -I nixpkgs=https://github.com/guibou/nixpkgs/archive/ghc-914.zip -p zlib haskell.compiler.ghc914 cabal-install --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.12: /'
+    nix-shell -I nixpkgs=https://github.com/guibou/nixpkgs/archive/ghc-914.zip -p "haskell.packages.ghc914.cabal-clean" --run "cabal-clean" 2>&1 | sed 's/^/cabal-clean: /' || exit 1
 }
 
-buildCabal_ghc912_jsbackend() {
-    # nix-shell -j auto -p pkgsCross.ghcjs.pkgsBuildHost.haskell.compiler.ghc912 pkgsCross.ghcjs.pkgsBuildHost.cabal-install --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.10 JS Backend: /'
-    nix-shell -j auto -p "pkgsCross.ghcjs.pkgsBuildHost.haskell.compiler.ghc912 cabal-install" --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.10 JS Backend: /'
+buildCabal_ghc914_jsbackend() {
+    # nix-shell -I nixpkgs=https://github.com/guibou/nixpkgs/archive/ghc-914.zip -j auto -p pkgsCross.ghcjs.pkgsBuildHost.haskell.compiler.ghc914 pkgsCross.ghcjs.pkgsBuildHost.cabal-install --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.10 JS Backend: /'
+    nix-shell -I nixpkgs=https://github.com/guibou/nixpkgs/archive/ghc-914.zip -j auto -p "pkgsCross.ghcjs.pkgsBuildHost.haskell.compiler.ghc914 cabal-install" --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.10 JS Backend: /'
 }
 
-buildCabal_ghc912_jsbackend() {
-    nix-shell -j auto -p pkgsCross.ghcjs.pkgsBuildHost.haskell.compiler.ghc912 pkgsCross.ghcjs.pkgsBuildHost.cabal-install --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.12 JS Backend: /'
-    # nix-shell -j auto -p "pkgsCross.ghcjs.pkgsBuildHost.haskell.compiler.ghc912 cabal-install" --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.12 JS Backend: /'
+buildCabal_ghc914_jsbackend() {
+    nix-shell -I nixpkgs=https://github.com/guibou/nixpkgs/archive/ghc-914.zip -j auto -p pkgsCross.ghcjs.pkgsBuildHost.haskell.compiler.ghc914 pkgsCross.ghcjs.pkgsBuildHost.cabal-install --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.12 JS Backend: /'
+    # nix-shell -I nixpkgs=https://github.com/guibou/nixpkgs/archive/ghc-914.zip -j auto -p "pkgsCross.ghcjs.pkgsBuildHost.haskell.compiler.ghc914 cabal-install" --run "cabal clean && cabal new-build -j --minimize-conflict-set" 2>&1 | sed 's/^/GHC 9.12 JS Backend: /'
 }
 
 buildCabal() {
-    buildCabal_ghc912 "$1"
-    buildCabal_ghc912 "$1"
-    # buildCabal_ghc912_jsbackend $1
-    # buildCabal_ghc912_jsbackend $1
+    buildCabal_ghc914 "$1"
+    buildCabal_ghc914 "$1"
+    # buildCabal_ghc914_jsbackend $1
+    # buildCabal_ghc914_jsbackend $1
 }
 
 buildDefault() {
@@ -98,11 +98,11 @@ help() {
 
 nix-channel --update
 # these don't seem to really do anything...
-nix-store -qR --include-outputs $(nix-instantiate -E "with import <nixpkgs> {}; (haskell.compiler.ghc912 cabal-install)" --add-root cabalroot --indirect) | cachix push dandart 2>&1 | sed 's/^/pushing cabal: /'
-# nix-store -qR --include-outputs $(nix-store -qd $(nix-build -E "with import <nixpkgs> {}; (haskell.compiler.ghc912 cabal-install)")) | grep -v '\.drv$' | cachix push dandart 2>&1 | sed 's/^/pushing cabal: /'
-# nix-build -E "with import <nixpkgs> {}; (haskell.compiler.ghc912 cabal-install)" | cachix push dandart 2>&1 | sed 's/^/pushing cabal: /'
-nix-shell -j auto -p haskell.compiler.ghc912 cabal-install --run "cabal update" 2>&1 | sed 's/^/cabal update: /'
-nix-shell -j auto -p haskell.compiler.ghc912 cabal-install --run "cabal new-update" 2>&1 | sed 's/^/cabal new-update: /'
+nix-store -qR --include-outputs $(nix-instantiate -E "with import <nixpkgs> {}; (haskell.compiler.ghc914 cabal-install)" --add-root cabalroot --indirect) | cachix push dandart 2>&1 | sed 's/^/pushing cabal: /'
+# nix-store -qR --include-outputs $(nix-store -qd $(nix-build -E "with import <nixpkgs> {}; (haskell.compiler.ghc914 cabal-install)")) | grep -v '\.drv$' | cachix push dandart 2>&1 | sed 's/^/pushing cabal: /'
+# nix-build -E "with import <nixpkgs> {}; (haskell.compiler.ghc914 cabal-install)" | cachix push dandart 2>&1 | sed 's/^/pushing cabal: /'
+nix-shell -I nixpkgs=https://github.com/guibou/nixpkgs/archive/ghc-914.zip -j auto -p haskell.compiler.ghc914 cabal-install --run "cabal update" 2>&1 | sed 's/^/cabal update: /'
+nix-shell -I nixpkgs=https://github.com/guibou/nixpkgs/archive/ghc-914.zip -j auto -p haskell.compiler.ghc914 cabal-install --run "cabal new-update" 2>&1 | sed 's/^/cabal new-update: /'
 
 ORIG=$(pwd)
 CODEDIRS="$PWD/mine $PWD/contrib"

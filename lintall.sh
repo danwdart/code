@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#! nix-shell -p haskell.packages.ghc98.stylish-haskell haskell.packages.ghc912.hlint haskell.packages.ghc912.apply-refact haskell.packages.ghc910.cabal-fmt statix shellcheck parallel -i bash
+#! nix-shell -I nixpkgs=https://github.com/guibou/nixpkgs/archive/ghc-914.zip -p haskell.packages.ghc98.stylish-haskell haskell.packages.ghc914.hlint haskell.packages.ghc914.apply-refact haskell.packages.ghc910.cabal-fmt statix shellcheck parallel -i bash
 set -euo pipefail
 mkdir -p ~/.parallel
 touch ~/.parallel/will-cite

@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#! nix-shell -p haskell.compiler.ghc912 cabal-install -i bash
+#! nix-shell -I nixpkgs=https://github.com/guibou/nixpkgs/archive/ghc-914.zip -p haskell.compiler.ghc914 cabal-install -i bash
 set -euo pipefail
 INITDIR=~/code
 cd "$INITDIR"
