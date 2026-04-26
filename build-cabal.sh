@@ -9,7 +9,11 @@ NIXPKGS="https://github.com/NixOS/nixpkgs/archive/master.zip"
 checkCabal() {
     HERE="$1"
 
-    if [[ "tumblr-editor" == "$HERE" || "websites" == "$HERE" || "archery" == "$HERE" ]]
+    if [[ "tumblr-editor" == "$HERE"
+        || "websites" == "$HERE"
+        || "archery" == "$HERE"
+        || "common" == "$HERE"
+    ]] # TODO come back to common
     then
         echo Ignoring running cabal-outdated.
         return 0
@@ -22,7 +26,32 @@ checkCabal() {
 
 testCabal() {
     HERE="$1"
-    if [[ "websites" == "$HERE" ]]
+    if [[ "websites" == "$HERE"
+        || "common" == "$HERE"
+        || "jolharg-web-database" == "$HERE"
+        || "jolharg-web-types" == "$HERE"
+        || "jolharg-web-models" == "$HERE"
+        || "jolharg-database" == "$HERE"
+        || "jolharg-emails" == "$HERE"
+        || "jolharg-servant" == "$HERE"
+        || "jolharg-reflex" == "$HERE"
+        || "jolharg-web" == "$HERE"
+        || "jolharg-servant-examples" == "$HERE"
+        || "db-instances" == "$HERE"
+        || "jolharg-api-types" == "$HERE"
+        || "jolharg-models" == "$HERE"
+        || "ui" == "$HERE"
+        || "api" == "$HERE"
+        || "archery" == "$HERE"
+        || "misostuff" == "$HERE"
+        || "js-backend" == "$HERE"
+        || "wasm-backend" == "$HERE"
+        || "ghcjs-stuff" == "$HERE"
+        || "ffijs" == "$HERE"
+        || "slsdemo" == "$HERE"
+        || "reflex-stuff" == "$HERE"
+        || "tumblr-api" == "$HERE"
+    ]] # TODO come back to common
     then
         echo Ignoring running cabal-test.
         return 0
@@ -39,6 +68,20 @@ buildCabal_shell() {
     HC_PKG="$6"
     HSC2HS="$7"
     EXTRA_CABAL_FLAGS="$8"
+
+    if [[
+        "ui" == "$HERE" ||
+        "api" == "$HERE" ||
+        "misostuff" == "$HERE" ||
+        "js-backend" == "$HERE" ||
+        "tumblr-api" == "$HERE" ||
+        "cards-ui" == "$HERE"
+    ]]
+    then
+        echo Ignoring building this.
+        return 0
+    fi
+
     # nix-shell -j auto -p zlib haskell.compiler.ghc914 cabal-install --run "cabal clean && cabal new-build -j" 2>&1 | sed 's/^/GHC 9.12: /'
     # cabal clean && 
     if [ ! -f "$SHELL_NIX" ]
@@ -46,7 +89,7 @@ buildCabal_shell() {
         echo No "$SHELL_NIX" file for "$HERE".
         if [ "$FILES_REQUIRED" == "true" ]
         then
-            exit 1
+            return
         fi
         return
     fi

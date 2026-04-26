@@ -127,7 +127,8 @@
 	],
 	"settings": {
 		"nixEnvSelector.suggestion": false,
-		"nixEnvSelector.nixFile": "${workspaceFolder}/shell.nix"
+		"nixEnvSelector.nixFile": "${workspaceFolder}/shell.nix",
+		"git.detectSubmodulesLimit": 100
 	},
 	"extensions": {
 		"recommendations": [
